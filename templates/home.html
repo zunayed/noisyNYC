@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="grid-container">
+        <div class="grid-100">
+            <hr>
+            <div class="d3_chart"></div>
+            <hr>
+        </div>
+    </div>
+
+<!-- JavaScript -->
+
+<script src="{{ url_for('static', filename='d3.v3.js') }}"></script>
+<script src="{{ url_for('static', filename='charts.js') }}"></script>
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+/* Sign up form */
+body {
+  margin-top: 50px;
+  margin-left: 100px
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #444;
+}
+
+.content {
+    /*margin-top: 100px;*/
+    float: center;
+    position:relative;
+    width: 940px;
+    margin: 0 auto;
+    text-align: left;
+    /*top: 100px;*/
+
+}
+form label {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  padding: 10px 0;
+}
+ 
+form input#firstname, 
+form input#lastname, 
+form input#email, 
+form input#confirm,
+form input#password {
+  width: 400px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 1.1em;
+}
+ 
+form input[type="submit"] {
+  font-size: 1em;
+  background-color: #F7464A;
+  border:solid 1px #F7464A;
+  color: #fff;
+  height: 28px;
+  padding-left:10px;
+  width: 191px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center; 
+  display: block;
+  margin-top: 20px;
+}
+ 
+form input[type="submit"]:hover{
+  cursor: pointer;
+  border:1px solid #c1c1c1; 
+  background-color: #dbdbdb;
+  
+}
+
+/* Message flashing */
+.flash {
+  background-color: #FBB0B0;
+  padding: 10px;
+  text-align: center;
+  width: 392px;
+}
