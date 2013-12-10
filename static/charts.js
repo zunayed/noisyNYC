@@ -12,8 +12,20 @@ d3.csv("top_complaints.csv")
 
         var w = 1000;
         var h = 600;
+        var padding = 50;
 
         var complaintCountScale = d3.scale.linear();
+        var yAxisScale = d3.scale.linear();
+
+        var xAxisScale = d3.scale.ordinal()
+                        .domain(rows, function(d){
+                            return d.complaint_type;
+
+        });
+
+        var xAxis = d3.svg.axis().scale(xAxisScale).orient("bottom");
+
+
 
         var maxDomain = d3.max(rows, function (d) {
             return d.count;
@@ -25,7 +37,11 @@ d3.csv("top_complaints.csv")
 
         complaintCountScale
             .domain([minDomain, maxDomain])
-            .range([h*.05, h*.9]);
+            .range([20, h]);
+
+         yAxisScale
+            .domain([maxDomain, minDomain])
+            .range([0, h]);
 
         var svg = d3.select('.d3_chart')
                 .append('svg')
@@ -37,7 +53,7 @@ d3.csv("top_complaints.csv")
             .enter()
             .append('rect')
                 .attr('x', function (d, i) {
-                    return i * (w/rows.length);
+                    return i * (w/rows.length) + padding;
                 })
                 .attr('y', function (d, i) {
                     return h - complaintCountScale(d.count);
@@ -61,17 +77,45 @@ d3.csv("top_complaints.csv")
                     return h - complaintCountScale(d.count) + 10;
                 })
                 .attr('x', function (d, i) {
-                    return i * (w / rows.length) + 2;
+                    return i * (w / rows.length) + padding;
                 })
                 .attr('fill', 'black')    
                 .text(function (d) {
                     return d.count;
                 })
-                .attr("font-family", "hevetica")
+                .attr("font-family", "helvetica")
                 .attr("font-size", "11px")
                 .attr("fill", "white")
-                .attr("text-anchor", "left");
+                .attr("text-anchor", "right");
 
+           svg.selectAll('text')
+            .data(rows)
+            .enter()
+            .append('text')
+                .attr('y', function (d, i) {
+                    return h;
+                })
+                .attr('x', function (d, i) {
+                    return i * (w / rows.length) + padding;
+                })
+                .attr('fill', 'black')    
+                .text(function (d) {
+                    return d.complaint_type;
+                })
 
+        var yAxis = d3.svg.axis()
+                  .scale(yAxisScale)
+                  .orient("left")
+                  .ticks(5);
+
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(" + padding + ",0)")
+            .call(yAxis);
+
+        // svg.append("g")
+        //     .attr("class", "axis")
+        //     .attr("transform", "translate(" + padding + ",0)")
+        //     .call(xAxis);
 
     });
