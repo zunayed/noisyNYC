@@ -4,16 +4,11 @@ d3.csv("top_complaints.csv")
 		var new_d = {
 
 			complaint_type: d['Complaint Type'],
-			
 			count: +d['Count']
 		};
-
     	return new_d;
-
     })
 	.get(function(error, rows) {
-
-        var rows = rows.reverse();
 
         var w = 1000;
         var h = 600;
@@ -54,30 +49,28 @@ d3.csv("top_complaints.csv")
                 .attr('height', function (d, i) {
                     return complaintCountScale(d.count); 
                 })
-                .attr('fill', function (d, i) {
-                    // var color = ['rgb', '(', i*20, ',', i*10, ',', i*10,')'].join('');
-                    // return color;
-                    return "black";
+                .attr("fill", function(d, i) {
+                    return "rgb(" + (i * 1) + ", " +  (i * 5) + ","  + (i * 5) + ")";
                 });
-
 
         svg.selectAll('text')
             .data(rows)
             .enter()
             .append('text')
                 .attr('y', function (d, i) {
-                    return h - complaintCountScale(d.count);
+                    return h - complaintCountScale(d.count) + 10;
                 })
                 .attr('x', function (d, i) {
-                    return i * (w / rows.length);
+                    return i * (w / rows.length) + 2;
                 })
-                .attr('fill', 'blue')
+                .attr('fill', 'black')    
                 .text(function (d) {
                     return d.count;
-                });
-
-
-
+                })
+                .attr("font-family", "hevetica")
+                .attr("font-size", "11px")
+                .attr("fill", "white")
+                .attr("text-anchor", "left");
 
 
 

@@ -10,6 +10,6 @@ def home():
 def top_complaints():
 	return open("top_complaints.csv").read()
 
-
 if __name__ == '__main__':
     app.run()
+
