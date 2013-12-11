@@ -1,10 +1,10 @@
-d3.csv("top_complaints.csv")
+d3.csv('top_complaints.csv')
     .row(function(d) {
 
-		var new_d = {
+        var new_d = {
 
 			complaint: d['Complaint Type'],
-			count: +d['Count']
+            count: +d['Count']
 		};
     	return new_d;
     })
@@ -13,40 +13,39 @@ d3.csv("top_complaints.csv")
         var w = 1000;
         var h = 600;
         var padding = 50;
+        var maxDomain = d3.max(rows, function (d) { return d.count; });
+        var minDomain = d3.min(rows, function (d) { return d.count; });
 
-
+        //scales
         var complaintCountScale = d3.scale.linear();
         var yAxisScale = d3.scale.linear();
-
         var xAxisScale = d3.scale.ordinal();
+        var color = d3.scale.category20c();
 
-        test = rows.map(function (d) {return d.complaint; })
-
-        console.log(test)
-        console.log(test.length)
-
+        //set up domain and range of scales
         xAxisScale
-            .domain(rows.map(function (d) {return d.complaint; }))
+            .domain(rows.map(function (d) { return d.complaint; }))
             .rangeBands([0, w]);
             
-
-
-        var maxDomain = d3.max(rows, function (d) {
-            return d.count;
-        });
-
-        var minDomain = d3.min(rows, function (d) {
-            return d.count;
-        });
-
         complaintCountScale
             .domain([minDomain, maxDomain])
             .range([20, h]);
 
          yAxisScale
             .domain([maxDomain, minDomain])
-            .range([0, h]);
+            .range([20, h]);
 
+        //pass in scales to axis(s)
+        var yAxis = d3.svg.axis()
+                  .scale(yAxisScale)
+                  .orient("left")
+                  .ticks(10);
+
+        var xAxis = d3.svg.axis()
+                    .scale(xAxisScale)
+                    .orient("bottom");
+
+        //create svg element    
         var svg = d3.select('.d3_chart')
                 .append('svg')
                 .attr('w', w)
@@ -56,51 +55,29 @@ d3.csv("top_complaints.csv")
             .data(rows)
             .enter()
             .append('rect')
-                .attr('x', function (d, i) {
-                    return i * (w/rows.length) + padding;
-                })
-                .attr('y', function (d, i) {
-                    return h - complaintCountScale(d.count);
-                    
-                })
-                .attr('width', function (d, i) {
-                    return (w / rows.length) - 2;
-                })
-                .attr('height', function (d, i) {
-                    return complaintCountScale(d.count); 
-                })
-                .attr("fill", function(d, i) {
-                    return "rgb(" + (i * 55) + ", " +  (i * 5) + ","  + (1) + ")";
+                .attr({
+                    x: function (d, i) { return i * (w/rows.length) + padding; },
+                    y: function (d, i) { return h - complaintCountScale(d.count); },
+                    width: function (d, i) { return (w / rows.length) - 2; },
+                    height: function (d, i) { return complaintCountScale(d.count); },
+                    fill: function(d, i) { return color(i); }
                 });
 
         svg.selectAll('text')
             .data(rows)
             .enter()
             .append('text')
-                .attr('y', function (d, i) {
-                    return h - complaintCountScale(d.count) + 10;
-                })
-                .attr('x', function (d, i) {
-                    return i * (w / rows.length) + padding;
-                })   
-                .text(function (d) {
-                    return d.count;
-                })
-                .attr("font-family", "helvetica")
-                .attr("font-size", "11px")
-                .attr("fill", "white")
-                .attr("text-anchor", "right");
+                .text(function (d) { return d.count; })
+                .attr({
+                    x: function (d, i) { return i * (w / rows.length) + padding; },
+                    y: function (d, i) { return h - complaintCountScale(d.count) + 10; },
+                    'front-family': 'helvetica',
+                    'font-size' : '11px',
+                    'text-anchor' : 'right',
+                    'fill': 'white'
+                });       
 
-        var yAxis = d3.svg.axis()
-                  .scale(yAxisScale)
-                  .orient("left")
-                  .ticks(5);
-
-        var xAxis = d3.svg.axis()
-                    .scale(xAxisScale)
-                    .orient("bottom");
-
-
+        //appending x & y scales to the SVG element 
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(" + padding + ",0)")
@@ -112,8 +89,5 @@ d3.csv("top_complaints.csv")
             .call(xAxis)
                 .selectAll("text")  
                 .style("text-anchor", "end")
-                .attr("transform", function(d) {
-                    return "rotate(-90)" 
-                    });
-
+                .attr("transform", function(d) { return "rotate(-65)" });
     });

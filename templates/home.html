@@ -1,24 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="row">
-    	<div class="large-12 columns">
-		    <style type="text/css">
-					
-					.axis path,
-					.axis line {
-						fill: none;
-						stroke: black;
-						shape-rendering: crispEdges;
-					}
-					
-					.axis text {
-						font-family: sans-serif;
-						font-size: 11px;
-					}
-			</style>
-    </div>
 
-        <!-- Grid Example -->
+    <style type="text/css">
+			
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			
+			.axis text {
+				font-family: helvetica;
+				font-size: 12px;
+			}
+	</style>
+   
     <div class="row">
       <div class="large-12 columns">
         <div class="callout panel">
@@ -36,7 +33,6 @@
 
 
 <!-- JavaScript -->
-
 <script src="{{ url_for('static', filename='d3.v3.js') }}"></script>
 <script src="{{ url_for('static', filename='charts.js') }}"></script>
 
