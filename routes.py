@@ -10,6 +10,10 @@ def home():
 def top_complaints():
 	return open("top_complaints.csv").read()
 
+@app.route('/zipcodes.json', methods=['GET'])
+def get_JSON():
+	return open("zipcodes.json").read()
+
 if __name__ == '__main__':
     app.run()
 
