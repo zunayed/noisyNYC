@@ -20,13 +20,9 @@ d3.csv("top_complaints.csv")
         var xAxisScale = d3.scale.ordinal()
                         .domain(rows, function(d){
                             return d.complaint_type;
-
         });
 
         var xAxis = d3.svg.axis().scale(xAxisScale).orient("bottom");
-
-
-
         var maxDomain = d3.max(rows, function (d) {
             return d.count;
         });
@@ -66,7 +62,7 @@ d3.csv("top_complaints.csv")
                     return complaintCountScale(d.count); 
                 })
                 .attr("fill", function(d, i) {
-                    return "rgb(" + (i * 1) + ", " +  (i * 5) + ","  + (i * 5) + ")";
+                    return "rgb(" + (i * 55) + ", " +  (i * 5) + ","  + (1) + ")";
                 });
 
         svg.selectAll('text')
