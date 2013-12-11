@@ -6,7 +6,7 @@
 			.axis path,
 			.axis line {
 				fill: none;
-				stroke: black;
+				/*stroke: black;*/
 				shape-rendering: crispEdges;
 			}
 			
@@ -26,15 +26,19 @@
     <div class="row">
       <div class="large-12 columns">
         <div class="callout panel">
-        	<div class="d3_chart"></div>
+        	<!-- <div id="d3_chart"></div> -->
+        	<div id="d3_map"></div> 
         </div>
       </div>
     </div>
 
-
-<!-- JavaScript -->
 <script src="{{ url_for('static', filename='d3.v3.js') }}"></script>
-<script src="{{ url_for('static', filename='charts.js') }}"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<!-- JavaScript -->
+
+<!-- <script src="{{ url_for('static', filename='charts.js') }}"></script> -->
+<script src="{{ url_for('static', filename='maps.js') }}"></script>
+
 
 {% endblock %}
 
