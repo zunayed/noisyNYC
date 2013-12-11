@@ -3,7 +3,7 @@ d3.csv("top_complaints.csv")
 
 		var new_d = {
 
-			complaint_type: d['Complaint Type'],
+			complaint: d['Complaint Type'],
 			count: +d['Count']
 		};
     	return new_d;
@@ -14,15 +14,23 @@ d3.csv("top_complaints.csv")
         var h = 600;
         var padding = 50;
 
+
         var complaintCountScale = d3.scale.linear();
         var yAxisScale = d3.scale.linear();
 
-        var xAxisScale = d3.scale.ordinal()
-                        .domain(rows, function(d){
-                            return d.complaint_type;
-        });
+        var xAxisScale = d3.scale.ordinal();
 
-        var xAxis = d3.svg.axis().scale(xAxisScale).orient("bottom");
+        test = rows.map(function (d) {return d.complaint; })
+
+        console.log(test)
+        console.log(test.length)
+
+        xAxisScale
+            .domain(rows.map(function (d) {return d.complaint; }))
+            .rangeBands([0, w]);
+            
+
+
         var maxDomain = d3.max(rows, function (d) {
             return d.count;
         });
@@ -74,8 +82,7 @@ d3.csv("top_complaints.csv")
                 })
                 .attr('x', function (d, i) {
                     return i * (w / rows.length) + padding;
-                })
-                .attr('fill', 'black')    
+                })   
                 .text(function (d) {
                     return d.count;
                 })
@@ -84,34 +91,29 @@ d3.csv("top_complaints.csv")
                 .attr("fill", "white")
                 .attr("text-anchor", "right");
 
-           svg.selectAll('text')
-            .data(rows)
-            .enter()
-            .append('text')
-                .attr('y', function (d, i) {
-                    return h;
-                })
-                .attr('x', function (d, i) {
-                    return i * (w / rows.length) + padding;
-                })
-                .attr('fill', 'black')    
-                .text(function (d) {
-                    return d.complaint_type;
-                })
-
         var yAxis = d3.svg.axis()
                   .scale(yAxisScale)
                   .orient("left")
                   .ticks(5);
+
+        var xAxis = d3.svg.axis()
+                    .scale(xAxisScale)
+                    .orient("bottom");
+
 
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(" + padding + ",0)")
             .call(yAxis);
 
-        // svg.append("g")
-        //     .attr("class", "axis")
-        //     .attr("transform", "translate(" + padding + ",0)")
-        //     .call(xAxis);
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(" + padding + "," + h + ")")
+            .call(xAxis)
+                .selectAll("text")  
+                .style("text-anchor", "end")
+                .attr("transform", function(d) {
+                    return "rotate(-90)" 
+                    });
 
     });
