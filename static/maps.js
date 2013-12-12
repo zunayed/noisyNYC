@@ -1,41 +1,38 @@
-$(function(){ 
-var w = 1400;
-var h = 1000;
+var w = 1000;
+var h = 900;
 
-d3.json('static/data/zipcodes.json', function(err, data){
-	return doit(err, data);
-});
 
+//set up map 
 var projection = d3.geo.mercator()
 	// .translate([400, -250])
-	.center([-73.945541, 40.795780])
-    .scale(90000);
+	.center([-73.955541, 40.795780])
+    .scale(95000);
 
 var path = d3.geo.path().projection(projection);
 
-var scale = d3.scale.linear()
-    	        .domain([1,170])
-        	    .range([2,8]);
+//set up a qX-X number to associate with colorbrew css styles
+var setColor = d3.scale.quantize()
+    .domain([-13, 170])
+    .range(d3.range(18).map(function(i) { return "q" + (i) + "-9"; }));
+ 
 
-var quantize = d3.scale.quantize()
-    .domain([-80, 170])
-    .range(d3.range(12).map(function(i) { return "q" + (i) + "-9"; }));
-
+//map complaint counts to color
 var zipcodeColor = function(zip) {
 	if(zip in data){	
-		return quantize(data[zip]);
-
+		return setColor(data[zip]);
 	}else{
-		return "blue";
+		//no data
+		return "white";
 	}
 };
 
-var doit = function (err, zipcodes) {
+var createMap = function (error, zipcodes) {
 	var svg = d3.select("#d3_map")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h);
-	
+				.append("svg")
+				.attr("class", "Reds")
+				.attr("width", w)
+				.attr("height", h);
+		
 	svg.append("g")
 		.selectAll("path")
 		.data(zipcodes.features)
@@ -52,4 +49,13 @@ var doit = function (err, zipcodes) {
 		.attr("d", path);
 }
 
+//readin geoJSON file and assigns it to zipcode
+d3.json('static/data/zipcodes.json', function(err, data){
+	return createMap(err, data);
 });
+
+
+d3.select("select").on("change", function() {
+  d3.selectAll("svg").attr("class", this.value);
+});
+

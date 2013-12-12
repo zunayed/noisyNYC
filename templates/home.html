@@ -16,32 +16,73 @@
 			}
 
 
-			.blue { 
+			.white { 
 				fill: #fff;
 				stroke: #fff;
 			}
 
+			.mapText {
+				text-align: right;
+				z-index: 1;
+				display: block;
+				font-family: "Helvetica Neue", Helvetica;
+				font-size: 36px;
+				font-weight: 300;
+				text-shadow: 0 1px 0 #fff;
+			}
+
+			.mapSubtext {
+				text-align: right;
+				font-family: "Helvetica Neue", Helvetica;
+				font-size: 12px;
+			}
 	</style>
    
     <div class="row">
-      <div class="large-12 columns YlGn">
-    	<div class="callout panel">
-      		<p><strong>NYC 311 Data:</strong> Zip codes with the most noise complaints</p>
+		<div class="large-9 columns">
+        	<div id="d3_map"></div> 	
+		</div>
+		<div class="large-3 columns">
+			<div class="mapText"> NYC 311 Data</div>
+			<p class="mapSubtext">Zip codes with the most noise complaints</p>
+			<br />
+			<p class="mapSubtext">Pick a color</p>
+		<div>
+			<select>
+	            <option value="YlGn">YlGn</option>
+	            <option value="YlGnBu">YlGnBu</option>
+	            <option value="GnBu">GnBu</option>
+	            <option value="BuGn">BuGn</option>
+	            <option value="PuBuGn">PuBuGn</option>
+	            <option value="PuBu">PuBu</option>
+	            <option value="BuPu">BuPu</option>
+	            <option value="RdPu">RdPu</option>
+	            <option value="PuRd">PuRd</option>
+	            <option value="OrRd">OrRd</option>
+	            <option value="YlOrRd">YlOrRd</option>
+	            <option value="YlOrBr">YlOrBr</option>
+	            <option value="Purples">Purples</option>
+	            <option value="Blues">Blues</option>
+	            <option value="Greens">Greens</option>
+	            <option value="Oranges">Oranges</option>
+	            <option value="Reds" selected>Reds</option>
+	            <option value="Greys">Greys</option>
+	        </select>
+        </div>
 
-        	<!-- <div id="d3_chart"></div> -->
-        	<div id="d3_map"></div> 
- 		</div>
-      </div>
-    </div>
+
+		</div>
+
+    </div>   
+    <hr />
     <div class="row">
       <div class="large-12 columns Greens">
-    	<div class="callout panel">
         	<div id="d3_chart"></div>
         	<!-- <div id="d3_map"></div>  -->
- 		</div>
+ 
       </div>
     </div>
-    
+
 <!-- JavaScript -->
 <script src="{{ url_for('static', filename='d3.v3.js') }}"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
