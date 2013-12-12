@@ -14,21 +14,31 @@
 				font-family: helvetica;
 				font-size: 12px;
 			}
+
+
+			.blue { 
+				fill: #fff;
+				stroke: #fff;
+			}
+
 	</style>
    
     <div class="row">
-      <div class="large-12 columns">
-        <div class="callout panel">
-          <p><strong>NYC 311 Data:</strong> Zip codes with the most complaint</p>
-        </div>
+      <div class="large-12 columns YlGn">
+    	<div class="callout panel">
+      		<p><strong>NYC 311 Data:</strong> Zip codes with the most noise complaints</p>
+
+        	<!-- <div id="d3_chart"></div> -->
+        	<div id="d3_map"></div> 
+ 		</div>
       </div>
     </div>
     <div class="row">
-      <div class="large-12 columns">
-        <div class="callout panel">
-        	<!-- <div id="d3_chart"></div> -->
-        	<div id="d3_map"></div> 
-        </div>
+      <div class="large-12 columns Greens">
+    	<div class="callout panel">
+        	<div id="d3_chart"></div>
+        	<!-- <div id="d3_map"></div>  -->
+ 		</div>
       </div>
     </div>
 
@@ -36,8 +46,9 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <!-- JavaScript -->
 
-<!-- <script src="{{ url_for('static', filename='charts.js') }}"></script> -->
+<script src="{{ url_for('static', filename='charts.js') }}"></script>
 <script src="{{ url_for('static', filename='maps.js') }}"></script>
+<script src="{{ url_for('static', filename='noiseNYC.js') }}"></script>
 
 
 {% endblock %}

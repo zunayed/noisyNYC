@@ -14,6 +14,10 @@ def top_complaints():
 def get_JSON():
 	return open("zipcodes.json").read()
 
+# @app.route('/noiseNYC.js', methods=['GET'])
+# def get_noise_data():
+# 	return open("staticNYC.js").read()
+
 if __name__ == '__main__':
     app.run()
 

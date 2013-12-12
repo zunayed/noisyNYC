@@ -25,14 +25,14 @@ d3.csv('top_complaints.csv')
         //set up domain and range of scales
         xAxisScale
             .domain(rows.map(function (d) { return d.complaint; }))
-            .rangeBands([0, w]);
+            .rangePoints([0, w - w/rows.length]);
             
         complaintCountScale
-            .domain([minDomain, maxDomain])
+            .domain([minDomain, maxDomain + 800])
             .range([20, h]);
 
          yAxisScale
-            .domain([maxDomain, minDomain])
+            .domain([maxDomain + 800, minDomain])
             .range([20, h]);
 
         //pass in scales to axis(s)
@@ -46,7 +46,7 @@ d3.csv('top_complaints.csv')
                     .orient("bottom");
 
         //create svg element    
-        var svg = d3.select('.d3_chart')
+        var svg = d3.select('#d3_chart')
                 .append('svg')
                 .attr('w', w)
                 .attr('h', h);
