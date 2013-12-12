@@ -5,6 +5,7 @@ var projection = d3.geo.mercator()
 	// .translate([400, -250])
 	.center([-73.955541, 40.795780])
     .scale(95000);
+
 var i = 0;
 var svg;
 var zips;
@@ -18,6 +19,20 @@ var setColor = d3.scale.quantize()
     .domain([0, data[i][2]])
     .range(d3.range(9).map(function(i) { return "q" + (i) + "-9"; }));
  
+var enableHover = function () {
+	$("path").hover(
+		function(){
+			zip = $(this).attr("title");
+			complaintCount = data[i][0][zip];
+			console.log(complaintCount);
+			$("#infoBox").html("zip - " + zip + " complaints " + complaintCount);
+	},
+	function () {
+	}
+	);
+};
+
+
 //map number of complaint to color intensity
 var zipcodeColor = function(zip, data) {
 	if(zip in data){	
@@ -46,15 +61,17 @@ var createMap = function (zipcodes) {
 		.enter()
 		.append("path")
 		  .attr("title", function(d) { return d.id })
-		  .attr("class", function(d) { return zipcodeColor(d.id, (data[i])[0]); })
+		  .attr("class", function(d) { return zipcodeColor(d.id, (data[i])[0]); } )
 		  .attr("stroke", '#fff')
 		  .attr("stroke-width", '1.75px')
+
 		  // .attr("class", 'zips')
 
 		  // .attr("style", function(d) { 
 		  // 	return (d.id in data) ? "fill:rgb(" + (data[d.id] + 30) + ",0,20);" : "";
 		  // })
 		.attr("d", path);
+	enableHover();
 }
 
 initSVG();
@@ -79,5 +96,9 @@ d3.select("#dataSelector").on("change", function() {
 	svg.attr("class", data[i][1]);
 
 });
+
+
+
+
 
 

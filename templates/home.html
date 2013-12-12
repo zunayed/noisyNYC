@@ -41,6 +41,20 @@
 			.menu {
 				text-align: right;
 			}
+
+			/* Go to top Button */
+
+			#infoBox {
+			  position: fixed;
+			  bottom: 2em;
+			  right: 2em;
+			  text-decoration: none;
+			  color: white;
+			  background-color: rgba(0, 0, 0, 0.6);
+			  font-size: 12px;
+			  padding: 1em;
+			  display: none;
+			}
 	</style>
    
     <div class="row">
@@ -49,7 +63,7 @@
 		</div>
 		<div class="large-3 columns">
 			<div class="mapText"> NYC 311 Data</div>
-			<p class="mapSubtext">Zip codes with the most noise complaints</p>
+			<p class="mapSubtext">Zip codes with the most _____ complaints</p>
 			<div class="menu">
 				<select id="colorSelector" style="" ='right'>
 					<option value="" disabled="disabled" selected="selected">Change color</option>
@@ -77,20 +91,23 @@
 
 	        <div class="menu">
 				<select id="dataSelector" style="" ='right'>
-					<option value="" disabled="disabled" selected="selected">Change Data</option>
-		            <option value="0">Noise</option>
+					<option value="" disabled="disabled">Change Data</option>
+		            <option value="0" selected="selected">Noise</option>
 		            <option value="1">Heat</option>
 		        </select>
 	        </div>
 		</div>
+    
+    <a id="infoBox" style="display: inline;">On Zip: </a>
 
     </div>   
     <hr />
     <div class="row">
       <div class="large-12 columns Greens">
+    
         	<div id="d3_chart"></div>
         	<!-- <div id="d3_map"></div>  -->
- 
+ 			
       </div>
     </div>
 
