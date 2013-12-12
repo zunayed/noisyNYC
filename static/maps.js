@@ -12,8 +12,8 @@ var path = d3.geo.path().projection(projection);
 
 //set up a qX-X number to associate with colorbrew css styles
 var setColor = d3.scale.quantize()
-    .domain([-13, 170])
-    .range(d3.range(18).map(function(i) { return "q" + (i) + "-9"; }));
+    .domain([0, 80])
+    .range(d3.range(9).map(function(i) { return "q" + (i) + "-9"; }));
  
 
 //map complaint counts to color
