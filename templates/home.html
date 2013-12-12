@@ -19,6 +19,7 @@
 			.white { 
 				fill: #fff;
 				stroke: #fff;
+				stroke-width: 1.5px;
 			}
 
 			.mapText {
@@ -36,6 +37,10 @@
 				font-family: "Helvetica Neue", Helvetica;
 				font-size: 12px;
 			}
+
+			.menu {
+				text-align: right;
+			}
 	</style>
    
     <div class="row">
@@ -45,32 +50,29 @@
 		<div class="large-3 columns">
 			<div class="mapText"> NYC 311 Data</div>
 			<p class="mapSubtext">Zip codes with the most noise complaints</p>
-			<br />
-			<p class="mapSubtext">Pick a color</p>
-		<div>
-			<select>
-	            <option value="YlGn">YlGn</option>
-	            <option value="YlGnBu">YlGnBu</option>
-	            <option value="GnBu">GnBu</option>
-	            <option value="BuGn">BuGn</option>
-	            <option value="PuBuGn">PuBuGn</option>
-	            <option value="PuBu">PuBu</option>
-	            <option value="BuPu">BuPu</option>
-	            <option value="RdPu">RdPu</option>
-	            <option value="PuRd">PuRd</option>
-	            <option value="OrRd">OrRd</option>
-	            <option value="YlOrRd">YlOrRd</option>
-	            <option value="YlOrBr">YlOrBr</option>
-	            <option value="Purples">Purples</option>
-	            <option value="Blues">Blues</option>
-	            <option value="Greens">Greens</option>
-	            <option value="Oranges">Oranges</option>
-	            <option value="Reds" selected>Reds</option>
-	            <option value="Greys">Greys</option>
-	        </select>
-        </div>
-
-
+			<div class="menu">
+				<select id="colorSelector" style="" ='right'>
+					<option value="" disabled="disabled" selected="selected">Change color</option>
+		            <option value="YlGn">YlGn</option>
+		            <option value="YlGnBu">YlGnBu</option>
+		            <option value="GnBu">GnBu</option>
+		            <option value="BuGn">BuGn</option>
+		            <option value="PuBuGn">PuBuGn</option>
+		            <option value="PuBu">PuBu</option>
+		            <option value="BuPu">BuPu</option>
+		            <option value="RdPu">RdPu</option>
+		            <option value="PuRd">PuRd</option>
+		            <option value="OrRd">OrRd</option>
+		            <option value="YlOrRd">YlOrRd</option>
+		            <option value="YlOrBr">YlOrBr</option>
+		            <option value="Purples">Purples</option>
+		            <option value="Blues">Blues</option>
+		            <option value="Greens">Greens</option>
+		            <option value="Oranges">Oranges</option>
+		            <option value="Reds">Reds</option>
+		            <option value="Greys">Greys</option>
+		        </select>
+	        </div>
 		</div>
 
     </div>   

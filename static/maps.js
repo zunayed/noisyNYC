@@ -15,7 +15,6 @@ var setColor = d3.scale.quantize()
     .domain([0, 80])
     .range(d3.range(9).map(function(i) { return "q" + (i) + "-9"; }));
  
-
 //map complaint counts to color
 var zipcodeColor = function(zip) {
 	if(zip in data){	
@@ -41,6 +40,7 @@ var createMap = function (error, zipcodes) {
 		  .attr("title", function(d) { return d.id })
 		  .attr("class", function(d) { return zipcodeColor(d.id); })
 		  .attr("stroke", '#fff')
+		  .attr("stroke-width", '1.75px')
 		  // .attr("class", 'zips')
 
 		  // .attr("style", function(d) { 
@@ -49,13 +49,14 @@ var createMap = function (error, zipcodes) {
 		.attr("d", path);
 }
 
-//readin geoJSON file and assigns it to zipcode
+//reading geoJSON file and assigns it to zipcode
 d3.json('static/data/zipcodes.json', function(err, data){
 	return createMap(err, data);
 });
 
-
-d3.select("select").on("change", function() {
+//monitor dropdown menu to change map colors
+d3.select("#colorSelector").on("change", function() {
   d3.selectAll("svg").attr("class", this.value);
 });
+
 
