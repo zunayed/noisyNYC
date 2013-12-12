@@ -73,6 +73,15 @@
 		            <option value="Greys">Greys</option>
 		        </select>
 	        </div>
+
+
+	        <div class="menu">
+				<select id="dataSelector" style="" ='right'>
+					<option value="" disabled="disabled" selected="selected">Change Data</option>
+		            <option value="0">Noise</option>
+		            <option value="1">Heat</option>
+		        </select>
+	        </div>
 		</div>
 
     </div>   
@@ -89,6 +98,7 @@
 <script src="{{ url_for('static', filename='d3.v3.js') }}"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="{{ url_for('static', filename='noiseNYC.js') }}"></script>
+<script src="{{ url_for('static', filename='heatNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='maps.js') }}"></script>
 <script src="{{ url_for('static', filename='charts.js') }}"></script>
 
