@@ -42,16 +42,17 @@
 				text-align: right;
 			}
 
-			/* Go to top Button */
+			/* infoBox */
 
 			#infoBox {
 			  position: fixed;
+			  font-family: "Helvetica Neue", Helvetica;
 			  bottom: 2em;
 			  right: 2em;
 			  text-decoration: none;
 			  color: white;
 			  background-color: rgba(0, 0, 0, 0.6);
-			  font-size: 12px;
+			  font-size: 14px;
 			  padding: 1em;
 			  display: none;
 			}
@@ -63,7 +64,9 @@
 		</div>
 		<div class="large-3 columns">
 			<div class="mapText"> NYC 311 Data</div>
-			<p class="mapSubtext">Zip codes with the most _____ complaints</p>
+			<p class="mapSubtext">Zip codes with the most _____ complaints
+		</p>
+
 			<div class="menu">
 				<select id="colorSelector" style="" ='right'>
 					<option value="" disabled="disabled" selected="selected">Change color</option>
@@ -96,6 +99,12 @@
 		            <option value="1">Heat</option>
 		        </select>
 	        </div>
+    		<p class="mapSubtext"><a href="https://github.com/zunayed/noisyNYC">Github</a> 
+			<br />
+			Big ups to Pierre, Liam, Julia
+			<br />
+			Moshe, Amy for their help
+			</p>
 		</div>
     
     <a id="infoBox" style="display: inline;">On Zip: </a>

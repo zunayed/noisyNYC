@@ -12,6 +12,7 @@ var zips;
 
 var path = d3.geo.path().projection(projection);
 
+//loading up different datasets, defualt color and max domain value
 var data = [[noiseData, "Blues", 190], [heatData, "Reds", 442]];
 
 //set up a qX-X number to associate with colorbrew css styles
@@ -25,13 +26,12 @@ var enableHover = function () {
 			zip = $(this).attr("title");
 			complaintCount = data[i][0][zip];
 			console.log(complaintCount);
-			$("#infoBox").html("zip - " + zip + " complaints " + complaintCount);
+			$("#infoBox").html("zip " + zip + " complaints " + complaintCount);
 	},
 	function () {
 	}
 	);
 };
-
 
 //map number of complaint to color intensity
 var zipcodeColor = function(zip, data) {
