@@ -6,18 +6,6 @@ app = Flask(__name__)
 def home():
 	return render_template('home.html')
 
-@app.route('/top_complaints.csv', methods=['GET'])
-def top_complaints():
-	return open("top_complaints.csv").read()
-
-@app.route('/zipcodes.json', methods=['GET'])
-def get_JSON():
-	return open("zipcodes.json").read()
-
-# @app.route('/noiseNYC.js', methods=['GET'])
-# def get_noise_data():
-# 	return open("staticNYC.js").read()
-
 if __name__ == '__main__':
     app.run()
 

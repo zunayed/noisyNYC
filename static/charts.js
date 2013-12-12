@@ -1,4 +1,4 @@
-d3.csv('top_complaints.csv')
+d3.csv('static/data/top_complaints.csv')
     .row(function(d) {
 
         var new_d = {

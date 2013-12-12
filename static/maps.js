@@ -2,7 +2,7 @@ $(function(){
 var w = 1400;
 var h = 1000;
 
-d3.json('zipcodes.json', function(err, data){
+d3.json('static/data/zipcodes.json', function(err, data){
 	return doit(err, data);
 });
 
