@@ -67,6 +67,15 @@
 			<p class="mapSubtext">Zip codes with the most _____ complaints
 		</p>
 
+
+	        <div class="menu">
+				<select id="dataSelector" style="" ='right'>
+					<option value="" disabled="disabled">Change Data</option>
+		            <option value="0" selected="selected">Noise</option>
+		            <option value="1">Heating</option>
+		        </select>
+	        </div>
+
 			<div class="menu">
 				<select id="colorSelector" style="" ='right'>
 					<option value="" disabled="disabled" selected="selected">Change color</option>
@@ -92,14 +101,10 @@
 	        </div>
 
 
-	        <div class="menu">
-				<select id="dataSelector" style="" ='right'>
-					<option value="" disabled="disabled">Change Data</option>
-		            <option value="0" selected="selected">Noise</option>
-		            <option value="1">Heat</option>
-		        </select>
-	        </div>
+
     		<p class="mapSubtext"><a href="https://github.com/zunayed/noisyNYC">Github</a> 
+			<br />
+			Zunayed Morsalin
 			<br />
 			Big ups to Pierre, Liam, Julia
 			<br />
@@ -113,10 +118,8 @@
     <hr />
     <div class="row">
       <div class="large-12 columns Greens">
-    
         	<div id="d3_chart"></div>
         	<!-- <div id="d3_map"></div>  -->
- 			
       </div>
     </div>
 
