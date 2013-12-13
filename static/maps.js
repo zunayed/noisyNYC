@@ -13,7 +13,7 @@ var zips;
 var path = d3.geo.path().projection(projection);
 
 //loading up different datasets, defualt color and max domain value
-var data = [[noiseData, "Blues", 190], [heatData, "Reds", 450]];
+var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450]];
 
 //set up a qX-X number to associate with colorbrew css styles
 var setColor = d3.scale.quantize()
@@ -21,15 +21,14 @@ var setColor = d3.scale.quantize()
     .range(d3.range(9).map(function(i) { return "q" + (i) + "-9"; }));
  
 var enableHover = function () {
-	$("path").hover(
-		function(){
+	$("path").hover(function(){
+
 			zip = $(this).attr("title");
 			complaintCount = data[i][0][zip];
-			console.log(complaintCount);
+			// console.log(complaintCount);
 			$("#infoBox").html("zip " + zip + " complaints " + complaintCount);
-	},
-	function () {
-	}
+		}
+		
 	);
 };
 
