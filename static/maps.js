@@ -13,7 +13,7 @@ var zips;
 var path = d3.geo.path().projection(projection);
 
 //loading up different datasets, defualt color and max domain value
-var data = [[noiseData, "Blues", 190], [heatData, "Reds", 442]];
+var data = [[noiseData, "Blues", 190], [heatData, "Reds", 450]];
 
 //set up a qX-X number to associate with colorbrew css styles
 var setColor = d3.scale.quantize()
@@ -90,10 +90,13 @@ d3.select("#colorSelector").on("change", function() {
 //monitor dropdown menu to change map data
 d3.select("#dataSelector").on("change", function() {
 	i = parseInt(this.value);
+
+	setColor.domain([0, data[i][2]])
 	console.log(i)
 	createMap(zips);
 
 	svg.attr("class", data[i][1]);
+
 
 });
 
