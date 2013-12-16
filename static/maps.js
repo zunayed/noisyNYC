@@ -14,16 +14,8 @@ var projection = d3.geo.mercator()
 var path = d3.geo.path().projection(projection);
 
 //loading up different datasets, default color and max domain value
-var data = [[noiseData, "Blues", 180], [heatData, "Reds", 430], [graffitiData, "RdPu", 40]];
+var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
 var dataLegendMin;
-var dataLegendMax;
-
-var findLegendMaxMin = function (i) {
-	dataLegendMax = data[dataSetIndex][2];
-	console.log ("max", dataLegendMax)
-	dataLegendMin = 0;
-}
-findLegendMaxMin(dataSetIndex);
 
 //set up a qX-X number to associate with colorbrew.css styles
 var setColor = d3.scale.quantize()
@@ -49,36 +41,39 @@ var initializeSVG = function () {
 		.attr("width", w)
 		.attr("height", h);
 };
+
 var createLegend = function () {
 
+	var ls_w = 20;
+	var ls_h = 20;
 	var nsteps = 10;
 	var step = dataLegendMax / nsteps;
 	var legendRange = [];
 	for (k = 0 ; k < nsteps ; k++) {
-		legendRange.push (Math.floor(dataLegendMin + k * step));
+		legendRange.push (Math.floor(k * step));
 	}
 
 	var legend = svg.selectAll("g.legend")
-  .data(legendRange)
-  .enter().append("g")
-  .attr("class", "legend");
+		.data(legendRange)
+		.enter().append("g")
+		.attr("class", "legend");
 
-  var ls_w = 20, ls_h = 20;
+	legend.append("rect")
+		.attr("x", 20)
+		.attr("y", function(d, i){ return h/2 - (i*ls_h) - 2*ls_h;})
+		.attr("width", ls_w)
+		.attr("height", ls_h)
 
-  legend.append("rect")
-  .attr("x", 20)
-  .attr("y", function(d, i){ return h/2 - (i*ls_h) - 2*ls_h;})
-  .attr("width", ls_w)
-  .attr("height", ls_h)
-  .attr("class", function(d, i) { return setColor(d); })
- // .attr("class", "q4-9")
+		.attr("class", function(d, i) { 
+			console.log(d)
+			return setColor(d); })
+		// .attr("class", "q4-9")
 
-  legend.append("text")
-  .attr("x", 50)
-  .attr("y", function(d, i){ return h/2 - (i*ls_h) - ls_h - 4;})
-  .attr("class", "mapSubtext")
-
-  .text(function(d, i){ return d});
+	legend.append("text")
+		.attr("x", 50)
+		.attr("y", function(d, i){ return h/2 - (i*ls_h) - ls_h - 4;})
+		.attr("class", "mapSubtext")
+		.text(function(d, i){ return d});
 }
 
 //map number of complaint to color intensity
@@ -92,19 +87,15 @@ var zipcodeColor = function(zip, data) {
 };
 
 function zoom() {
+	//To Do - Bound limits so you can't pan away from map
 	// console.log("zooming", d3.event.scale, d3.event.translate);
 	trans = d3.event.translate;
 	// trans[0] = Math.min(trans[0], d3.event.scale * 400);
 	// trans[0] = Math.max(trans[0], d3.event.scale * -400);
-	// console.log(trans);
 	svg.select("g").attr("transform", "translate(" + trans + ")scale(" + d3.event.scale + ")");
-	d3.selectAll("svg").attr("stroke-width", ''+(1.75/d3.event.scale)+'px');
+	d3.selectAll("svg").attr("stroke-width", ''+ (1.75/d3.event.scale) +'px');
 }
 
-var findCentre = function (d) {
-
-
-}
 var createMap = function (zipcodes) {
 	svg.remove();
 	initializeSVG();
@@ -119,19 +110,20 @@ var createMap = function (zipcodes) {
 	  	.attr("title", function(d) { return d.id })
 	  	.attr("class", function(d) { return zipcodeColor(d.id, (data[dataSetIndex])[0]); } )
 	  	.attr("stroke", '#fff')
-	  	.attr("bbox", function (d) { console.log(d);
-	  								var b = d3.geo.bounds(d);
-	  									console.log (b);
-	  									return b;
-	  								})
-	  //	.attr("stroke-width", '1.75px')
+	  	// .attr("bbox", function (d) { console.log(d);
+	  	// 							var b = d3.geo.bounds(d);
+	  	// 								console.log (b);
+	  	// 								return b;
+	  	// 							})
 		.attr("d", path);
 
 	createLegend();
 	enableHover();
 }
 
+//create svg element and set max legend value
 initializeSVG(); 
+dataLegendMax = data[dataSetIndex][2];
 
 //reading geoJSON file and assigns it to zipcode
 d3.json('static/data/zipcodes.json', function(zipcodes){
@@ -147,8 +139,7 @@ d3.select("#colorSelector").on("change", function() {
 //monitor dropdown menu to change map data
 d3.select("#dataSelector").on("change", function() {
 	dataSetIndex = parseInt(this.value);
-
-	findLegendMaxMin(dataSetIndex);
+	dataLegendMax = data[dataSetIndex][2];
 
 	setColor.domain([0, data[dataSetIndex][2]])
 	console.log(data[dataSetIndex])
@@ -156,4 +147,3 @@ d3.select("#dataSelector").on("change", function() {
 
 	svg.attr("class", data[dataSetIndex][1]);
 });
-
