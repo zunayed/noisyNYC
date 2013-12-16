@@ -17,7 +17,7 @@
 
 
 			.white { 
-				fill: #fff;
+				fill: #F0F0F0;
 				stroke: #fff;
 				stroke-width: 1.5px;
 			}
@@ -73,6 +73,8 @@
 					<option value="" disabled="disabled">Change Data</option>
 		            <option value="0" selected="selected">Noise</option>
 		            <option value="1">Heating</option>
+		            <option value="2">Graffiti</option>
+
 		        </select>
 	        </div>
 
@@ -128,6 +130,7 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="{{ url_for('static', filename='noiseNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='heatNYC.js') }}"></script>
+<script src="{{ url_for('static', filename='graffitiNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='maps.js') }}"></script>
 <script src="{{ url_for('static', filename='charts.js') }}"></script>
 

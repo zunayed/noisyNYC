@@ -1,34 +1,33 @@
 //set up map
 var w = 1000;
 var h = 900;
-var projection = d3.geo.mercator()
-	// .translate([400, -250])
-	.center([-73.955541, 40.795780])
-    .scale(95000);
 
-var i = 0;
+var dataSetIndex = 0;
 var svg;
 var zips;
 
+var projection = d3.geo.mercator()
+	.center([-73.955541, 40.795780])
+    .scale(95000);
+
 var path = d3.geo.path().projection(projection);
 
-//loading up different datasets, defualt color and max domain value
-var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450]];
+//loading up different datasets, default color and max domain value
+var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
 
-//set up a qX-X number to associate with colorbrew css styles
+//set up a qX-X number to associate with colorbrew.css styles
 var setColor = d3.scale.quantize()
-    .domain([0, data[i][2]])
+    .domain([0, data[dataSetIndex][2]])
     .range(d3.range(9).map(function(i) { return "q" + (i) + "-9"; }));
  
 var enableHover = function () {
 	$("path").hover(function(){
 
 			zip = $(this).attr("title");
-			complaintCount = data[i][0][zip];
+			complaintCount = data[dataSetIndex][0][zip];
 			// console.log(complaintCount);
 			$("#infoBox").html("zip " + zip + " complaints " + complaintCount);
 		}
-		
 	);
 };
 
@@ -60,15 +59,10 @@ var createMap = function (zipcodes) {
 		.enter()
 		.append("path")
 		  .attr("title", function(d) { return d.id })
-		  .attr("class", function(d) { return zipcodeColor(d.id, (data[i])[0]); } )
+		  .attr("class", function(d) { return zipcodeColor(d.id, (data[dataSetIndex])[0]); } )
 		  .attr("stroke", '#fff')
 		  .attr("stroke-width", '1.75px')
 
-		  // .attr("class", 'zips')
-
-		  // .attr("style", function(d) { 
-		  // 	return (d.id in data) ? "fill:rgb(" + (data[d.id] + 30) + ",0,20);" : "";
-		  // })
 		.attr("d", path);
 	enableHover();
 }
@@ -88,19 +82,11 @@ d3.select("#colorSelector").on("change", function() {
 
 //monitor dropdown menu to change map data
 d3.select("#dataSelector").on("change", function() {
-	i = parseInt(this.value);
+	dataSetIndex = parseInt(this.value);
 
-	setColor.domain([0, data[i][2]])
-	console.log(i)
+	setColor.domain([0, data[dataSetIndex][2]])
+	console.log(data[dataSetIndex])
 	createMap(zips);
 
-	svg.attr("class", data[i][1]);
-
-
+	svg.attr("class", data[dataSetIndex][1]);
 });
-
-
-
-
-
-
