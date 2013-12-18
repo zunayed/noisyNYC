@@ -18,7 +18,7 @@ var nsteps = 9;
 //map type & center point 
 var projection = d3.geo.mercator()
 	.center([-73.955541, 40.795780])
-    .scale(95000);
+    .scale(195000);
 
 var path = d3.geo.path().projection(projection);
 
@@ -103,7 +103,7 @@ var createMap = function (zipcodes) {
 	svg.remove();
 	initializeSVG();
 
-	svg.call(d3.behavior.zoom().scaleExtent([.9, 8]).on("zoom", zoom))
+	svg.call(d3.behavior.zoom().scaleExtent([.5, 8]).on("zoom", zoom))
 
 	svg.append("g")
 		.selectAll("path")
