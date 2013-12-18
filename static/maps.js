@@ -1,10 +1,19 @@
+//loading up different datasets, default color and max domain value
+var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
+
 //set up map
-var w = 1000;
-var h = 900;
+var w = $(window).width();
+var h = $(window).height();
 
 var dataSetIndex = 0;
 var svg;
 var zips;
+
+//legend settings
+var dataLegendMax = data[dataSetIndex][2];
+var ls_w = 20;
+var ls_h = 20;
+var nsteps = 9;
 
 //map type & center point 
 var projection = d3.geo.mercator()
@@ -13,25 +22,10 @@ var projection = d3.geo.mercator()
 
 var path = d3.geo.path().projection(projection);
 
-//loading up different datasets, default color and max domain value
-var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
-var dataLegendMin;
-
 //set up a qX-X number to associate with colorbrew.css styles
 var setColor = d3.scale.quantize()
     .domain([0, data[dataSetIndex][2]])
     .range(d3.range(9).map(function(i) { return "q" + (i) + "-9"; }));
- 
-var enableHover = function () {
-	$("path").hover(function(){
-
-			zip = $(this).attr("title");
-			complaintCount = data[dataSetIndex][0][zip];
-			// console.log(complaintCount);
-			$("#infoBox").html("zip " + zip + " complaints " + complaintCount);
-		}
-	);
-};
 
 var initializeSVG = function () {
 
@@ -44,11 +38,9 @@ var initializeSVG = function () {
 
 var createLegend = function () {
 
-	var ls_w = 20;
-	var ls_h = 20;
-	var nsteps = 10;
 	var step = dataLegendMax / nsteps;
 	var legendRange = [];
+
 	for (k = 0 ; k < nsteps ; k++) {
 		legendRange.push (Math.floor(k * step));
 	}
@@ -60,7 +52,7 @@ var createLegend = function () {
 
 	legend.append("rect")
 		.attr("x", 20)
-		.attr("y", function(d, i){ return h/2 - (i*ls_h) - 2*ls_h;})
+		.attr("y", function(d, i){ return h/3.5 - (i*ls_h) - 2*ls_h;})
 		.attr("width", ls_w)
 		.attr("height", ls_h)
 
@@ -70,8 +62,8 @@ var createLegend = function () {
 		// .attr("class", "q4-9")
 
 	legend.append("text")
-		.attr("x", 50)
-		.attr("y", function(d, i){ return h/2 - (i*ls_h) - ls_h - 4;})
+		.attr("x", 40 + 2)
+		.attr("y", function(d, i){ return h/3.5 - (i*ls_h) - ls_h - 4;})
 		.attr("class", "mapSubtext")
 		.text(function(d, i){ return d});
 }
@@ -86,7 +78,7 @@ var zipcodeColor = function(zip, data) {
 	}
 };
 
-function zoom() {
+var zoom = function() {
 	//To Do - Bound limits so you can't pan away from map
 	// console.log("zooming", d3.event.scale, d3.event.translate);
 	trans = d3.event.translate;
@@ -95,6 +87,17 @@ function zoom() {
 	svg.select("g").attr("transform", "translate(" + trans + ")scale(" + d3.event.scale + ")");
 	d3.selectAll("svg").attr("stroke-width", ''+ (1.75/d3.event.scale) +'px');
 }
+
+var enableHover = function () {
+	$("path").hover(function(){
+
+			zip = $(this).attr("title");
+			complaintCount = data[dataSetIndex][0][zip];
+			// console.log(complaintCount);
+			$("#infoBox").html("zip " + zip + " complaints " + complaintCount);
+		}
+	);
+};
 
 var createMap = function (zipcodes) {
 	svg.remove();
@@ -121,9 +124,8 @@ var createMap = function (zipcodes) {
 	enableHover();
 }
 
-//create svg element and set max legend value
+//create svg element 
 initializeSVG(); 
-dataLegendMax = data[dataSetIndex][2];
 
 //reading geoJSON file and assigns it to zipcode
 d3.json('static/data/zipcodes.json', function(zipcodes){

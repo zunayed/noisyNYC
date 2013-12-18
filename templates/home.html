@@ -9,12 +9,11 @@
 				/*stroke: black;*/
 				shape-rendering: crispEdges;
 			}
-			
+	
 			.axis text {
 				font-family: helvetica;
 				font-size: 12px;
 			}
-
 
 			.white { 
 				fill: #F0F0F0;
@@ -56,69 +55,96 @@
 			  padding: 1em;
 			  display: none;
 			}
+			#corner_item {
+
+				position: fixed;
+				top: 2em;
+				right: 2em;
+			/*	position: absolute;
+				top: 55px;
+				left: 15PX;
+				width: 350px;*/
+			}
 	</style>
+
+    <style>
+      rect.bordered {
+        stroke: #E6E6E6;
+        stroke-width:2px;   
+      }
+
+      text.mono {
+        font-size: 9pt;
+        font-family: Consolas, courier;
+        fill: #aaa;
+      }
+
+      text.axis-workweek {
+        fill: #000;
+      }
+
+      text.axis-worktime {
+        fill: #000;
+      }
+    </style>
    
-    <div class="row">
-		<div class="large-9 columns">
+    <!-- <div class="row"> -->
+		<!-- <div class="large-12 columns"> -->
         	<div id="d3_map"></div> 	
-		</div>
-		<div class="large-3 columns">
-			<div class="mapText"> NYC 311 Data</div>
-			<p class="mapSubtext">Zip codes with the most _____ complaints
-		</p>
 
+			<div id="corner_item">
+				<div class="mapText"> NYC 311 Data</div>
+				<p class="mapSubtext">Zip codes with the most _____ complaints
+			</p>
 
-	        <div class="menu">
-				<select id="dataSelector" style="" ='right'>
-					<option value="" disabled="disabled">Change Data</option>
-		            <option value="0" selected="selected">Noise</option>
-		            <option value="1">Heating</option>
-		            <option value="2">Graffiti</option>
+		        <div class="menu">
+					<select id="dataSelector" style="" ='right'>
+						<option value="" disabled="disabled">Change Data</option>
+			            <option value="0" selected="selected">Noise</option>
+			            <option value="1">Heating</option>
+			            <option value="2">Graffiti</option>
 
-		        </select>
-	        </div>
+			        </select>
+		        </div>
 
-			<div class="menu">
-				<select id="colorSelector" style="" ='right'>
-					<option value="" disabled="disabled" selected="selected">Change color</option>
-		            <option value="YlGn">YlGn</option>
-		            <option value="YlGnBu">YlGnBu</option>
-		            <option value="GnBu">GnBu</option>
-		            <option value="BuGn">BuGn</option>
-		            <option value="PuBuGn">PuBuGn</option>
-		            <option value="PuBu">PuBu</option>
-		            <option value="BuPu">BuPu</option>
-		            <option value="RdPu">RdPu</option>
-		            <option value="PuRd">PuRd</option>
-		            <option value="OrRd">OrRd</option>
-		            <option value="YlOrRd">YlOrRd</option>
-		            <option value="YlOrBr">YlOrBr</option>
-		            <option value="Purples">Purples</option>
-		            <option value="Blues">Blues</option>
-		            <option value="Greens">Greens</option>
-		            <option value="Oranges">Oranges</option>
-		            <option value="Reds">Reds</option>
-		            <option value="Greys">Greys</option>
-		        </select>
-	        </div>
-
-
+				<div class="menu">
+					<select id="colorSelector" style="" ='right'>
+						<option value="" disabled="disabled" selected="selected">Change color</option>
+			            <option value="YlGn">YlGn</option>
+			            <option value="YlGnBu">YlGnBu</option>
+			            <option value="GnBu">GnBu</option>
+			            <option value="BuGn">BuGn</option>
+			            <option value="PuBuGn">PuBuGn</option>
+			            <option value="PuBu">PuBu</option>
+			            <option value="BuPu">BuPu</option>
+			            <option value="RdPu">RdPu</option>
+			            <option value="PuRd">PuRd</option>
+			            <option value="OrRd">OrRd</option>
+			            <option value="YlOrRd">YlOrRd</option>
+			            <option value="YlOrBr">YlOrBr</option>
+			            <option value="Purples">Purples</option>
+			            <option value="Blues">Blues</option>
+			            <option value="Greens">Greens</option>
+			            <option value="Oranges">Oranges</option>
+			            <option value="Reds">Reds</option>
+			            <option value="Greys">Greys</option>
+			        </select>
+		        </div>
+		    <!-- </div> -->
 
     		<p class="mapSubtext"><a href="https://github.com/zunayed/noisyNYC">Github</a> 
 			<br />
 			Zunayed Morsalin
-			<br />
-			Big ups to Pierre, Liam, Julia
-			<br />
-			Moshe, Amy and Kanye West for their help
 			</p>
-		</div>
+		<!-- </div> -->
     
     <a id="infoBox" style="display: inline;">On Zip: </a>
 
     </div>   
     <div class="row">
       <div class="large-12 columns Greens">
+        	<div id="chart"></div> 	
+
         	<!-- <div id="d3_chart"></div> -->
         	<!-- <div id="d3_map"></div>  -->
       </div>
@@ -131,9 +157,8 @@
 <script src="{{ url_for('static', filename='heatNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='graffitiNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='maps.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='time.js') }}"></script> -->
 <script src="{{ url_for('static', filename='charts.js') }}"></script>
-
-
 
 {% endblock %}
 
