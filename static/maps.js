@@ -79,12 +79,10 @@ var zipcodeColor = function(zip, data) {
 };
 
 var zoom = function() {
-	//To Do - Bound limits so you can't pan away from map
-	// console.log("zooming", d3.event.scale, d3.event.translate);
+
 	trans = d3.event.translate;
-	// trans[0] = Math.min(trans[0], d3.event.scale * 400);
-	// trans[0] = Math.max(trans[0], d3.event.scale * -400);
 	svg.select("g").attr("transform", "translate(" + trans + ")scale(" + d3.event.scale + ")");
+	//scale stroke width based on zoom
 	d3.selectAll("svg").attr("stroke-width", ''+ (1.75/d3.event.scale) +'px');
 }
 
