@@ -17,7 +17,7 @@ var nsteps = 9;
 
 //map type & center point 
 var projection = d3.geo.mercator()
-	.center([-73.955541, 40.795780])
+	.center([-74.000816, 40.752898])
     .scale(195000);
 
 var path = d3.geo.path().projection(projection);
