@@ -1,9 +1,12 @@
 //loading up different datasets, default color and max domain value
+/*global noiseData: false */
+"use strict";
+
 var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
 
 //set up map
-var w = $(window).width();
-var h = $(window).height();
+var w = screen.width;
+var h = screen.height;
 
 var dataSetIndex = 0;
 var svg;
@@ -41,7 +44,7 @@ var createLegend = function () {
 	var step = dataLegendMax / nsteps;
 	var legendRange = [];
 
-	for (k = 0 ; k < nsteps ; k++) {
+	for (var k = 0 ; k < nsteps ; k++) {
 		legendRange.push (Math.floor(k * step));
 	}
 
@@ -57,7 +60,7 @@ var createLegend = function () {
 		.attr("height", ls_h)
 
 		.attr("class", function(d, i) { 
-			console.log(d)
+			// console.log(d)
 			return setColor(d); })
 		// .attr("class", "q4-9")
 
@@ -65,8 +68,8 @@ var createLegend = function () {
 		.attr("x", 40 + 2)
 		.attr("y", function(d, i){ return h/3.5 - (i*ls_h) - ls_h - 4;})
 		.attr("class", "mapSubtext")
-		.text(function(d, i){ return d});
-}
+		.text(function(d){ return d;});
+};
 
 //map number of complaint to color intensity
 var zipcodeColor = function(zip, data) {
@@ -78,24 +81,41 @@ var zipcodeColor = function(zip, data) {
 	}
 };
 
-var zoom = function() {
+//Jquery hover way
+// var enableHover = function () {
+// 	var strokeWidth = $("#d3_map").attr("stroke-width");
 
-	trans = d3.event.translate;
-	svg.select("g").attr("transform", "translate(" + trans + ")scale(" + d3.event.scale + ")");
-	//scale stroke width based on zoom
-	d3.selectAll("svg").attr("stroke-width", ''+ (1.75/d3.event.scale) +'px');
+// 	$("path").hover(function(){
+// 			zip = $(this).attr("title");
+// 			console.log("stroke" + strokeWidth);
+// 			// $(this).attr("stroke-width", "4px");
+// 			complaintCount = data[dataSetIndex][0][zip];
+// 			$("#infoBox").html("zip " + zip + " complaints " + complaintCount);
+// 		}
+// 	})
+	
+// };
+
+//D3 hover info way
+function mouseover(d){
+	d3.select(this).style("stroke-width", '4px');
+	var zip = d3.select(this).attr("title");
+	var complaintCount = data[dataSetIndex][0][zip];
+	d3.select("#infoBox").html("zip " + zip + " complaints " + complaintCount);
+
 }
 
-var enableHover = function () {
-	$("path").hover(function(){
+function mouseout(){
+   	d3.select(this).style("stroke-width", '');
+}
 
-			zip = $(this).attr("title");
-			complaintCount = data[dataSetIndex][0][zip];
-			// console.log(complaintCount);
-			$("#infoBox").html("zip " + zip + " complaints " + complaintCount);
-		}
-	);
-};
+var zoom = function() {
+	var trans = d3.event.translate;
+	svg.select("g")
+		.attr("transform", "translate(" + trans + ")scale(" + d3.event.scale + ")");
+	//scale stroke width based on zoom
+	d3.selectAll("#d3_map").attr("stroke-width", ""+ (1.75/d3.event.scale) +'px');
+}
 
 var createMap = function (zipcodes) {
 	svg.remove();
@@ -108,18 +128,14 @@ var createMap = function (zipcodes) {
 		.data(zipcodes.features)
 		.enter()
 		.append("path")
-	  	.attr("title", function(d) { return d.id })
+	  	.attr("title", function(d) { return d.id; })
 	  	.attr("class", function(d) { return zipcodeColor(d.id, (data[dataSetIndex])[0]); } )
 	  	.attr("stroke", '#fff')
-	  	// .attr("bbox", function (d) { console.log(d);
-	  	// 							var b = d3.geo.bounds(d);
-	  	// 								console.log (b);
-	  	// 								return b;
-	  	// 							})
+		.on("mouseover",mouseover)
+		.on("mouseout",mouseout)
 		.attr("d", path);
 
 	createLegend();
-	enableHover();
 }
 
 //create svg element 
