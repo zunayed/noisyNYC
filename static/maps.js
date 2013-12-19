@@ -55,7 +55,7 @@ var createLegend = function () {
 
 	legend.append("rect")
 		.attr("x", 20)
-		.attr("y", function(d, i){ return h/3.5 - (i*ls_h) - 2*ls_h;})
+		.attr("y", function(d, i){ return h/3 - (i*ls_h) - 2*ls_h;})
 		.attr("width", ls_w)
 		.attr("height", ls_h)
 
@@ -66,7 +66,7 @@ var createLegend = function () {
 
 	legend.append("text")
 		.attr("x", 40 + 2)
-		.attr("y", function(d, i){ return h/3.5 - (i*ls_h) - ls_h - 4;})
+		.attr("y", function(d, i){ return h/3 - (i*ls_h) - ls_h - 4;})
 		.attr("class", "mapSubtext")
 		.text(function(d){ return d;});
 };
