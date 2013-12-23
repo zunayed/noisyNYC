@@ -10,7 +10,7 @@ D3 Choropleth of the noisiest neighborhoods in NYC.
 Live Demo - http://noisynyc.herokuapp.com/
 
 ![alt tag](http://i.imgur.com/cu2kPxx.jpg)
-![alt tag](http://i.imgur.com/h5ilV4U.jpg)
+![alt tag](http://i.imgur.com/qG0H1zK.jpg)
 
 ## Run
 You will need flask > 0.10.1
