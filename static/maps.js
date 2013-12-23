@@ -1,5 +1,5 @@
 //loading up different datasets, default color and max domain value
-/*global noiseData: false */
+/*global noiseData: false, heatData: false, graffitiData: false, d3: false  */
 "use strict";
 
 var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
@@ -55,25 +55,21 @@ var createLegend = function () {
 
 	legend.append("rect")
 		.attr("x", 20)
-		.attr("y", function(d, i){ return h/4 - (i*ls_h) - 2*ls_h;})
+		.attr("y", function(d, i){ return h/4 - (i*ls_h) - 2*ls_h; })
 		.attr("width", ls_w)
 		.attr("height", ls_h)
-
-		.attr("class", function(d, i) { 
-			// console.log(d)
-			return setColor(d); })
-		// .attr("class", "q4-9")
+		.attr("class", function(d) { return setColor(d); });
 
 	legend.append("text")
 		.attr("x", 40 + 2)
-		.attr("y", function(d, i){ return h/4 - (i*ls_h) - 2*ls_h + 15;})
+		.attr("y", function(d, i){ return h/4 - (i*ls_h) - 2*ls_h + 15; })
 		.attr("class", "mapSubtext")
 		.text(function(d){ return d;});
 };
 
 //map number of complaint to color intensity
 var zipcodeColor = function(zip, data) {
-	if(zip in data){	
+	if(zip in data){
 		return setColor(data[zip]);
 	}else{
 		//no data
@@ -97,8 +93,8 @@ var zipcodeColor = function(zip, data) {
 // };
 
 //D3 hover info way
-function mouseover(d){
-	d3.select(this).style("stroke-width", '4px');
+function mouseover(){
+	d3.select(this).style("stroke-width", "4px");
 	var zip = d3.select(this).attr("title");
 	var complaintCount = data[dataSetIndex][0][zip];
 	d3.select("#infoBox").html("zip " + zip + " complaints " + complaintCount);
@@ -106,7 +102,7 @@ function mouseover(d){
 }
 
 function mouseout(){
-   	d3.select(this).style("stroke-width", '');
+	d3.select(this).style("stroke-width", "");
 }
 
 var zoom = function() {
@@ -114,35 +110,35 @@ var zoom = function() {
 	svg.select("g")
 		.attr("transform", "translate(" + trans + ")scale(" + d3.event.scale + ")");
 	//scale stroke width based on zoom
-	d3.selectAll("#d3_map").attr("stroke-width", ""+ (1.75/d3.event.scale) +'px');
-}
+	d3.selectAll("#d3_map").attr("stroke-width", ""+ (1.75/d3.event.scale) +"px");
+};
 
 var createMap = function (zipcodes) {
 	svg.remove();
 	initializeSVG();
 
-	svg.call(d3.behavior.zoom().scaleExtent([.5, 8]).on("zoom", zoom))
+	svg.call(d3.behavior.zoom().scaleExtent([1/2, 8]).on("zoom", zoom));
 
 	svg.append("g")
 		.selectAll("path")
 		.data(zipcodes.features)
 		.enter()
 		.append("path")
-	  	.attr("title", function(d) { return d.id; })
-	  	.attr("class", function(d) { return zipcodeColor(d.id, (data[dataSetIndex])[0]); } )
-	  	.attr("stroke", '#fff')
-		.on("mouseover",mouseover)
-		.on("mouseout",mouseout)
+		.attr("title", function(d) { return d.id; })
+		.attr("class", function(d) { return zipcodeColor(d.id, (data[dataSetIndex])[0]); } )
+		.attr("stroke", "#fff")
+		.on("mouseover", mouseover)
+		.on("mouseout", mouseout)
 		.attr("d", path);
 
 	createLegend();
-}
+};
 
-//create svg element 
-initializeSVG(); 
+//create svg element
+initializeSVG();
 
 //reading geoJSON file and assigns it to zipcode
-d3.json('static/data/zipcodes.json', function(zipcodes){
+d3.json("static/data/zipcodes.json", function(zipcodes){
 	zips = zipcodes;
 	return createMap(zipcodes);
 });
@@ -157,8 +153,7 @@ d3.select("#dataSelector").on("change", function() {
 	dataSetIndex = parseInt(this.value);
 	dataLegendMax = data[dataSetIndex][2];
 
-	setColor.domain([0, data[dataSetIndex][2]])
-	console.log(data[dataSetIndex])
+	setColor.domain([0, data[dataSetIndex][2]]);
 	createMap(zips);
 
 	svg.attr("class", data[dataSetIndex][1]);
