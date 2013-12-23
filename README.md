@@ -20,6 +20,8 @@ python routes.py
 Built using D3. Foundation CSS for styling
 
 ## Using You're Own Data
+If you provide a object with values associated with zipcodes you can map you're own values. 
+
 ``` .js
 var noiseData = {
   "10032": 264,
@@ -31,4 +33,9 @@ var noiseData = {
   "10023": 155,
 ...
 }
+```
+
+You can have multiple datasets. You also need to pass in default color scheme and a max domain range value
+``` .js
+var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
 ```
