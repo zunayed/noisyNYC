@@ -1,0 +1,62 @@
+.axis path,
+.axis line {
+	fill: none;
+	/*stroke: black;*/
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: helvetica;
+	font-size: 12px;
+}
+
+.white { 
+	fill: #F0F0F0;
+	stroke: #fff;
+	stroke-width: 1.75px;
+}
+
+.mapText {
+	text-align: right;
+	z-index: 1;
+	display: block;
+	font-family: "Helvetica Neue", Helvetica;
+	font-size: 36px;
+	font-weight: 300;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.mapSubtext {
+	text-align: right;
+	font-family: "Helvetica Neue", Helvetica;
+	font-size: 12px;
+}
+
+.menu {
+	text-align: right;
+}
+
+/* infoBox */
+
+#infoBox {
+  position: fixed;
+  font-family: "Helvetica Neue", Helvetica;
+  bottom: 2em;
+  right: 2em;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  padding: 1em;
+  display: none;
+}
+#corner_item {
+
+	position: fixed;
+	top: 2em;
+	right: 2em;
+/*	position: absolute;
+	top: 55px;
+	left: 15PX;
+	width: 350px;*/
+}
