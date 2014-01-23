@@ -6,7 +6,7 @@ var dataSets = {
 	"noise": {
 		"data": noiseData,
 		"color": "Blues",
-		"maxDomain": 180
+		"maxDomain": 425
 	},
 	"heat": {
 		"data": heatData,
@@ -24,6 +24,7 @@ var dataSets = {
 var w = screen.width;
 var h = screen.height;
 
+//defualt dataset to load
 var currentData = dataSets.noise;
 var svg;
 var zips;
@@ -41,7 +42,7 @@ var projection = d3.geo.mercator()
 
 var path = d3.geo.path().projection(projection);
 
-//set up a qX-X number to associate with colorbrew.css styles
+//set up a qX-9 number to associate with colorbrew.css styles
 var setColor = d3.scale.quantize()
     .domain([0, currentData.maxDomain])
     .range(d3.range(9).map(function(i) { return "q" + (i) + "-9"; }));
@@ -143,7 +144,7 @@ var zoom = function() {
 // };
 
 
-//D3 hover info way
+//D3 hoverbox info way
 var mouseover = function() {
 	d3.select(this).style("stroke-width", "4px");
 	var zip = d3.select(this).attr("title");
