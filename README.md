@@ -1,5 +1,5 @@
 **[Run](#run)** |
-**[Using You're Own Data](#data)** |
+**[Using Your Own Data](#data)** |
 noisyNYC
 ========
 
@@ -19,8 +19,8 @@ python routes.py
 ```
 Built using D3. Foundation CSS for styling
 
-## Using You're Own Data
-If you provide a object with values associated with zipcodes you can map you're own values. 
+## Using Your Own Data
+If you provide an object with values associated with zipcodes you can map you're own values. 
 
 ``` .js
 var noiseData = {
