@@ -37,5 +37,22 @@ var noiseData = {
 
 You can have multiple datasets. You also need to pass in default color scheme and a max domain range value
 ``` .js
-var data = [[noiseData, "Blues", 180], [heatData, "Reds", 450], [graffitiData, "RdPu", 40]];
+var dataSets = {
+	"noise": {
+		"data": noiseData,
+		"color": "Blues",
+		"maxDomain": 425
+	},
+	"heat": {
+		"data": heatData,
+		"color": "Reds",
+		"maxDomain": 375
+	},
+	"graffiti": {
+		"data": graffitiData,
+		"color": "RdPu",
+		"maxDomain": 30
+	}
+};
+
 ```
