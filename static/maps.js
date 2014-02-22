@@ -24,7 +24,7 @@ var dataSets = {
 var w = screen.width;
 var h = screen.height;
 
-//defualt dataset to load
+//default dataset to load
 var currentData = dataSets.noise;
 var svg;
 var zips;
@@ -60,19 +60,18 @@ var initializeSVG = function () {
 var createMap = function (zipcodes) {
 	svg.remove();
 	initializeSVG();
-
 	svg.append("g")
 		.selectAll("path")
 		.data(zipcodes.features)
 		.enter()
 		.append("path")
+		.attr('name', function(d) { return d.properties.name })
 		.attr("title", function(d) { return d.id; })
 		.attr("class", function(d) { return zipcodeColor(d.id, currentData.data); } )
 		.attr("stroke", "#fff")
 		.on("mouseover", mouseover)
 		.on("mouseout", mouseout)
 		.attr("d", path);
-
 	//scaleExtent is the max and min of zoom level
 	svg.call(d3.behavior.zoom().scaleExtent([1/2, 8]).on("zoom", zoom));
 
