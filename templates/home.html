@@ -2,23 +2,24 @@
 {% block content %}
    
 <div id="d3_map"></div> 	
+<!-- <div id="chart"></div>      -->
 
 <div id="corner_item">
+
 	<div class="mapText"> NYC 311 Data</div>
 	<p class="mapSubtext">Zip codes with the most _____ complaints</p>
 
     <div class="menu">
-		<select id="dataSelector" style="" ='right'>
+		<select id="dataSelector">
 			<option value="" disabled="disabled">Change Data</option>
             <option value="noise" selected="selected">Noise</option>
             <option value="heat">Heating</option>
             <option value="graffiti">Graffiti</option>
-
         </select>
     </div>
 
 	<div class="menu">
-		<select id="colorSelector" style="" ='right'>
+		<select id="colorSelector">
 			<option value="" disabled="disabled" selected="selected">Change color</option>
             <option value="YlGn">YlGn</option>
             <option value="YlGnBu">YlGnBu</option>
@@ -39,6 +40,8 @@
             <option value="Reds">Reds</option>
             <option value="Greys">Greys</option>
         </select>
+        <br>
+
     </div>
 
 	<p class="mapSubtext"><a href="https://github.com/zunayed/noisyNYC">Github</a> 
@@ -46,7 +49,9 @@
 	Zunayed Morsalin
 	<br />
 	Scroll to zoom in and out
-
+    <br />
+    UPLOAD your own <a href="https://github.com/zunayed/noisyNYC">Data</a>
+    
 	</p>
 </div>
 <a id="infoBox" style="display: inline;">On Zip: </a>
