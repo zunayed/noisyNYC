@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-   
+
 <div id="d3_map"></div> 	
-<!-- <div id="chart"></div>      -->
 
 <div id="corner_item">
 
@@ -41,35 +40,37 @@
             <option value="Greys">Greys</option>
         </select>
         <br>
-
     </div>
 
-	<p class="mapSubtext"><a href="https://github.com/zunayed/noisyNYC">Github</a> 
-	<br />
-	Zunayed Morsalin
-	<br />
-	Scroll to zoom in and out
-    <br />
-    UPLOAD your own <a href="https://github.com/zunayed/noisyNYC">Data</a>
-    
+	<p class="mapSubtext">
+        <a href="#test" data-reveal-id="myModal" class="radius button tiny">Time of Day Viz</a>
+        <br />
+        <a href="https://github.com/zunayed/noisyNYC">Github</a> 
+    	<br />
+    	Zunayed Morsalin
+    	<br />
+    	Scroll to zoom in and out
+        <br />
+
+        <div id="myModal" class="reveal-modal" data-reveal>
+            <p class="lead">Time Series Data</p>
+            <div id="chart"></div>     
+
+        </div>
+
 	</p>
 </div>
 <a id="infoBox" style="display: inline;">On Zip: </a>
-  
-<!-- <div class="row">
-  <div class="large-12 columns Greens">
-    	<div id="chart"></div> 	
-    	<div id="d3_chart"></div>
-  </div>
-</div> -->
+
 
 <!-- JavaScript -->
+
 <script src="{{ url_for('static', filename='d3.v3.js') }}"></script>
 <script src="{{ url_for('static', filename='noiseNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='heatNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='graffitiNYC.js') }}"></script>
 <script src="{{ url_for('static', filename='maps.js') }}"></script>
-<!-- <script src="{{ url_for('static', filename='time.js') }}"></script> -->
+<script src="{{ url_for('static', filename='time.js') }}"></script>
 <!-- <script src="{{ url_for('static', filename='charts.js') }}"></script> -->
 
 {% endblock %}
