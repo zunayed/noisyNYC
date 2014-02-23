@@ -24,10 +24,10 @@ def get_pages(start_date=(date(2010, 1, 1))):
         for i in range(max_pages):
             # print('GET: {0} {1}'.format(base_url, params))
             # print(i)
+            params['offset'] = str(i * limit)
             URL = Build_URL(base_url, params)
             new_data = get_page(URL)
             data.extend(new_data)
-            params['offset'] = str(i * limit)
             if len(new_data) < limit:
                 break
         start_date_range = end_date_range
