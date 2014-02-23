@@ -1,6 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
+<style>
+    #tooltip {
+        position: absolute;
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+    }
 
+    #tooltip.hidden {
+            display: none;
+    }
+
+    #tooltip p {
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 20px;
+    }
+
+</style>
 <div id="d3_map"></div> 	
 
 <div id="corner_item">
@@ -52,16 +79,21 @@
     	Scroll to zoom in and out
         <br />
 
-        <div id="myModal" class="reveal-modal" data-reveal>
-            <p class="lead">Time Series Data</p>
+        <div id="myModal" class="reveal-modal" class="tiny" data-reveal>
+            <p id="modalHeader">Time Series Data</p>
             <div id="chart"></div>     
-
         </div>
 
 	</p>
 </div>
-<a id="infoBox" style="display: inline;">On Zip: </a>
+<a id="infoBox" style="display: inline;">
+    On Zip: 
+</a>
 
+<div id="tooltip" class="hidden">
+        <p><strong>Important Label Heading</strong></p>
+        <p><span id="value">100</span>%</p>
+</div>
 
 <!-- JavaScript -->
 
