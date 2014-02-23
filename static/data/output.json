@@ -1,0 +1,962 @@
+{
+   "10065": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "10069": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "16"
+   }, 
+   "10453": {
+      "value": "13", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10452": {
+      "value": "22", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10451": {
+      "value": "6", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10457": {
+      "value": "15", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10456": {
+      "value": "10", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10455": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "10454": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10459": {
+      "value": "6", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10458": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11232": {
+      "value": "6", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10103": {
+      "value": "1", 
+      "weekday": "0", 
+      "hour": "9"
+   }, 
+   "11233": {
+      "value": "10", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11385": {
+      "value": "10", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11234": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11235": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11237": {
+      "value": "16", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11218": {
+      "value": "14", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10282": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "12"
+   }, 
+   "10280": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "19"
+   }, 
+   "10281": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10119": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "0"
+   }, 
+   "11109": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "17"
+   }, 
+   "11379": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "20"
+   }, 
+   "11378": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11102": {
+      "value": "8", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11103": {
+      "value": "8", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11377": {
+      "value": "15", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11101": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11106": {
+      "value": "9", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11370": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "11104": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11105": {
+      "value": "10", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11375": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11374": {
+      "value": "7", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10048": {
+      "value": "1", 
+      "weekday": "5", 
+      "hour": "1"
+   }, 
+   "11229": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10040": {
+      "value": "27", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11228": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10044": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "0"
+   }, 
+   "11201": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10129": {
+      "value": "1", 
+      "weekday": "5", 
+      "hour": "21"
+   }, 
+   "10128": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11205": {
+      "value": "16", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11204": {
+      "value": "8", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11207": {
+      "value": "16", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11206": {
+      "value": "13", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11209": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11208": {
+      "value": "16", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11372": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11225": {
+      "value": "28", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11224": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11368": {
+      "value": "13", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11369": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11366": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11223": {
+      "value": "9", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11364": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "11365": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11362": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "11"
+   }, 
+   "11363": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "19"
+   }, 
+   "11360": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "16"
+   }, 
+   "11222": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11221": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11220": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11040": {
+      "value": "1", 
+      "weekday": "5", 
+      "hour": "15"
+   }, 
+   "11212": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11213": {
+      "value": "9", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11210": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11211": {
+      "value": "16", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10039": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10038": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11214": {
+      "value": "6", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11215": {
+      "value": "7", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10035": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10034": {
+      "value": "25", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10037": {
+      "value": "6", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10036": {
+      "value": "13", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10031": {
+      "value": "23", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10030": {
+      "value": "14", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10033": {
+      "value": "25", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10032": {
+      "value": "28", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11001": {
+      "value": "1", 
+      "weekday": "5", 
+      "hour": "21"
+   }, 
+   "11358": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11005": {
+      "value": "1", 
+      "weekday": "4", 
+      "hour": "0"
+   }, 
+   "11004": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11697": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "0"
+   }, 
+   "11694": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11357": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11356": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11355": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11354": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11216": {
+      "value": "20", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11217": {
+      "value": "16", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10309": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10308": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10307": {
+      "value": "8", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10306": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10305": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "20"
+   }, 
+   "10304": {
+      "value": "10", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10303": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "20"
+   }, 
+   "10302": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "21"
+   }, 
+   "10301": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "10028": {
+      "value": "6", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10029": {
+      "value": "20", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10026": {
+      "value": "25", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10027": {
+      "value": "14", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10024": {
+      "value": "9", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10025": {
+      "value": "26", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10022": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10023": {
+      "value": "8", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10020": {
+      "value": "1", 
+      "weekday": "4", 
+      "hour": "22"
+   }, 
+   "10021": {
+      "value": "8", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11429": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "11219": {
+      "value": "7", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11230": {
+      "value": "6", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11428": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11421": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11420": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11423": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11422": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11427": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "19"
+   }, 
+   "11426": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "19"
+   }, 
+   "10153": {
+      "value": "1", 
+      "weekday": "2", 
+      "hour": "14"
+   }, 
+   "10310": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10312": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10314": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11231": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10162": {
+      "value": "2", 
+      "weekday": "4", 
+      "hour": "0"
+   }, 
+   "11238": {
+      "value": "16", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11239": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "0"
+   }, 
+   "10019": {
+      "value": "14", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10018": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10013": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10012": {
+      "value": "22", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10011": {
+      "value": "8", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10010": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10017": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10016": {
+      "value": "12", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11236": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10014": {
+      "value": "9", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11203": {
+      "value": "14", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11432": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11433": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11436": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "11434": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11435": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10004": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10005": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10006": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10007": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10000": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "20"
+   }, 
+   "10001": {
+      "value": "17", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10002": {
+      "value": "14", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10003": {
+      "value": "11", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11692": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "20"
+   }, 
+   "10009": {
+      "value": "21", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11693": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10475": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "18"
+   }, 
+   "10474": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "10471": {
+      "value": "7", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10470": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10473": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10472": {
+      "value": "7", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11691": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "17"
+   }, 
+   "11249": {
+      "value": "23", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11241": {
+      "value": "1", 
+      "weekday": "5", 
+      "hour": "7"
+   }, 
+   "11361": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11242": {
+      "value": "1", 
+      "weekday": "2", 
+      "hour": "15"
+   }, 
+   "11226": {
+      "value": "23", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10075": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10466": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10467": {
+      "value": "12", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10464": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "10465": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10462": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10463": {
+      "value": "5", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10460": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10461": {
+      "value": "11", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10468": {
+      "value": "10", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "10469": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11411": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11412": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11413": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "11414": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "21"
+   }, 
+   "11415": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11416": {
+      "value": "3", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11417": {
+      "value": "1", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "11418": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "22"
+   }, 
+   "11419": {
+      "value": "2", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11367": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }, 
+   "11373": {
+      "value": "4", 
+      "weekday": "6", 
+      "hour": "23"
+   }
+}
