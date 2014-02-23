@@ -17,3 +17,4 @@ def munge(df):
     df = df.groupby(level=0)['Incident Zip'].value_counts()     # get reports per zip by month
 
     return df
+
