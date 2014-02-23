@@ -197,32 +197,34 @@ d3.select("#dataSelector").on("change", function() {
 
 
 var lookupTime = function(zip) {
-var margin = { top: 50, right: 50, bottom: 50, left: 30 },
-    width = 900 - margin.left - margin.right,
-    height = 480 - margin.top - margin.bottom,
-    gridSize = Math.floor(width / 24),
-    legendElementWidth = gridSize*2,
-    buckets = 9,
 
-    colors = ['rgb(254,235,226)','rgb(252,197,192)','rgb(250,159,181)','rgb(247,104,161)','rgb(221,52,151)','rgb(174,1,126)','rgb(122,1,119)'],
-    // colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
-    days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-    times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12a"];
+	var margin = { top: 50, right: 50, bottom: 50, left: 30 },
+	    width = 800 - margin.left - margin.right,
+	    height = 480 - margin.top - margin.bottom,
+	    gridSize = Math.floor(width / 24),
+	    legendElementWidth = gridSize * 2,
+	    buckets = 9,
+
+	    colors = ['rgb(254,235,226)','rgb(252,197,192)','rgb(250,159,181)','rgb(247,104,161)','rgb(221,52,151)','rgb(174,1,126)','rgb(122,1,119)'],
+	    // colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
+	    days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+	    times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12a"];
 
     d3.tsv("static/data/time.tsv",
       function(d) {
+      	console.log(d)
         return {
           day: +d.day,
           hour: +d.hour,
           value: +d.value
         };
+
       },
       function(error, data) {
         var colorScale = d3.scale.quantile()
             .domain([0, 300])
             // .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
             .range(colors);
-
         var svg = d3.select("#chart").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -259,11 +261,11 @@ var margin = { top: 50, right: 50, bottom: 50, left: 30 },
             .attr("class", "hour bordered")
             .attr("width", gridSize)
             .attr("height", gridSize)
-            // .style("fill", colors[0]);
+            .style("fill", colors[0])
             .style("fill", function(d) { return colorScale(d.value); });
 
 
-        // heatMap.transition().duration(2000)
+        // heatMap.transition().duration(4000)
         //     .style("fill", function(d) { return colorScale(d.value); });
 
         heatMap.append("title").text(function(d) { return d.value; });
