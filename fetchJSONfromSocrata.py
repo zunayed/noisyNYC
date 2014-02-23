@@ -1,6 +1,8 @@
 import requests
+import json
 from datetime import date
 from login import keys
+from pprint import pprint
 
 
 def get_pages(start_date=(date(2010, 1, 1))):
@@ -27,6 +29,7 @@ def get_pages(start_date=(date(2010, 1, 1))):
             params['offset'] = str(i * limit)
             URL = Build_URL(base_url, params)
             new_data = get_page(URL)
+            pprint(new_data)
             data.extend(new_data)
             if len(new_data) < limit:
                 break
@@ -54,3 +57,8 @@ http://data.cityofnewyork.us/resource/pq25-vtyu.json?$$app_token=xxx$offset=8300
 def Build_URL(base_url, params):
     URL = base_url + '$app_token={0}&$offset={1}&$limit={2}&$where={3}'.format(params['app_token'], params['offset'], params['limit'], params['where'])
     return URL
+
+if __name__ == "__main__":
+    data = get_pages()
+    with open('data.json', 'wb') as f:
+        json.dump(data, f)
