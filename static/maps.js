@@ -212,7 +212,6 @@ var lookupTime = function(zip) {
 
     d3.tsv("static/data/time.tsv",
       function(d) {
-      	console.log(d)
         return {
           day: +d.day,
           hour: +d.hour,
