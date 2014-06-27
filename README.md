@@ -7,7 +7,7 @@ D3 Choropleth of the noisiest neighborhoods in NYC.
 
 ** Update - Now with heating and graffiti data
 
-Live Demo - http://noisynyc.herokuapp.com/
+Live Demo - http://noisynyc.dtostillwell.com/
 
 ![alt tag](http://i.imgur.com/cu2kPxx.jpg)
 ![alt tag](http://i.imgur.com/qG0H1zK.jpg)
