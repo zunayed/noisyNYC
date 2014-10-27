@@ -1,5 +1,5 @@
 var width = 960,
-    height = 136,
+    height = 150,
     cellSize = 17; // cell size
 
 var day = d3.time.format("%w"),
@@ -24,6 +24,18 @@ svg.append("text")
     .attr("transform", "translate(-6," + cellSize * 3.5 + ")rotate(-90)")
     .style("text-anchor", "middle")
     .text(function(d) { return d; });
+
+times = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Nov', 'Dec']
+var timeLabels = svg.selectAll(".timeLabel")
+    .data(times)
+    .enter().append("text")
+      .text(function(d) { return d; })
+      .attr("x", function(d, i) { return i * (width / 12) + 15; })
+      .attr("y", -5)
+      .style("text-anchor", "middle")
+      // .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+      // .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+
 
 var rect = svg.selectAll(".day")
     .data(function(d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
@@ -57,7 +69,9 @@ d3.csv("static/data/stack_time.csv", function(csv){
 
 });
 
+console.log(monthPath(d3.time.months(new Date(d, 0, 1)))
 function monthPath(t0) {
+  // console.log(t0);
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
       d0 = +day(t0), w0 = +week(t0),
       d1 = +day(t1), w1 = +week(t1);
@@ -67,5 +81,3 @@ function monthPath(t0) {
       + "H" + (w1 + 1) * cellSize + "V" + 0
       + "H" + (w0 + 1) * cellSize + "Z";
 }
-
-d3.select(self.frameElement).style("height", "2910px");
