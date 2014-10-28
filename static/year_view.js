@@ -50,7 +50,6 @@ var rect = svg.selectAll(".day")
 rect.append("title")
     .text(function(d) { return d; });
 
-
 svg.selectAll(".month")
     .data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
     .enter().append("path")
@@ -69,9 +68,7 @@ d3.csv("static/data/stack_time.csv", function(csv){
 
 });
 
-console.log(monthPath(d3.time.months(new Date(d, 0, 1)))
 function monthPath(t0) {
-  // console.log(t0);
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
       d0 = +day(t0), w0 = +week(t0),
       d1 = +day(t1), w1 = +week(t1);
