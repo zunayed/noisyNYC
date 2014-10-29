@@ -11,7 +11,7 @@ var color = d3.scale.quantize()
     .domain([0,915])
     .range(d3.range(9).map(function(d) { return "q" + d + "-9"; }));
 
-var svg = d3.select("body").selectAll("svg")
+var svg = d3.select("#charts").selectAll("svg")
     .data(d3.range(2012, 2015))
     .enter()
     .append("svg")
