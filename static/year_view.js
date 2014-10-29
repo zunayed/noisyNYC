@@ -35,12 +35,12 @@ var dayLabel = svg.selectAll(".dayLebl")
       .attr("x", 920)
       .style("text-anchor", "middle")
 
-times = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Nov', 'Dec']
+times = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept','Oct', 'Nov', 'Dec']
 var timeLabels = svg.selectAll(".timeLabel")
     .data(times)
     .enter().append("text")
       .text(function(d) { return d; })
-      .attr("x", function(d, i) { return i * (width / 12) + 35; })
+      .attr("x", function(d, i) { return i * (width / 12) + 5; })
       .attr("y", -5)
       .style("text-anchor", "middle")
       // .attr("transform", "translate(" + gridSize / 2 + ", -6)")
