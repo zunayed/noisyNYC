@@ -82,26 +82,26 @@ body {
 </style>
 
 <body>
-
-<div id="corner_item2">
-
-    <div class="mapText"> NYC 311 Data</div>
-    <p class="mapSubtext">Noisy complaints throughtout the year</p>
-
+<div class="row">
+  <div class="large-12 columns">
+    <div>
+        <h1> NYC 311 Data</h1>
+        <p class="mapSubtext2">Noisy complaints throughtout the year</p>
+    </div>
+  </div>
 </div>
-
-<div id="tooltip" class="hidden">
+<div class="row">
+  <div class="large-12 columns">
+    <div id="charts"></div>
+  </div>
 </div>
+</body>
 
+<div id="tooltip" class="hidden"></div>
 
 <!-- JavaScript -->
 <script src="{{ url_for('static', filename='d3.v3.js') }}"></script>
 <script src="{{ url_for('static', filename='year_view.js') }}"></script>
-<!-- <script src="{{ url_for('static', filename='heatNYC.js') }}"></script> -->
-<!-- <script src="{{ url_for('static', filename='graffitiNYC.js') }}"></script> -->
-<!-- <script src="{{ url_for('static', filename='maps.js') }}"></script> -->
-<!-- <script src="{{ url_for('static', filename='time.js') }}"></script> -->
-<!-- <script src="{{ url_for('static', filename='charts.js') }}"></script> -->
 
 {% endblock %}
 
