@@ -1,15 +1,17 @@
-var width = 960,
-    height = 150,
-    cellSize = 17; // cell size
+/*global d3: false  */
 
-var day = d3.time.format("%w"),
-    week = d3.time.format("%U"),
-    percent = d3.format(".1%"),
-    format = d3.time.format("%Y-%m-%d");
+var width = 960;
+var height = 150;
+var cellSize = 17; // cell size
+
+var day = d3.time.format("%w");
+var week = d3.time.format("%U");
+var percent = d3.format(".1%");
+var format = d3.time.format("%Y-%m-%d");
 
 var color = d3.scale.quantize()
-    .domain([0,915])
-    .range(d3.range(9).map(function(d) { return "q" + d + "-9"; }));
+    .domain([0, 915])
+    .range(d3.range(9).map(function (d) { return "q" + d + "-9"; }));
 
 var svg = d3.select("#charts").selectAll("svg")
     .data(d3.range(2012, 2015))
@@ -24,84 +26,70 @@ var svg = d3.select("#charts").selectAll("svg")
 svg.append("text")
     .attr("transform", "translate(-6," + cellSize * 3.5 + ")rotate(-90)")
     .style("text-anchor", "middle")
-    .text(function(d) { return d; });
+    .text(function (d) { return d; });
 
-days = ['S', 'W', 'S']
+var days_list = ['S', 'W', 'S'];
 var dayLabel = svg.selectAll(".dayLebl")
-    .data(days)
+    .data(days_list)
     .enter().append("text")
-      .text(function(d) { return d; })
-      .attr("y", function(d, i) { return i * cellSize * 3 + 12; })
+      .text(function (d) { return d; })
+      .attr("y", function (d, i) { return i * cellSize * 3 + 12; })
       .attr("x", 920)
-      .style("text-anchor", "middle")
+      .style("text-anchor", "middle");
 
-times = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept','Oct', 'Nov', 'Dec']
+var times_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 var timeLabels = svg.selectAll(".timeLabel")
-    .data(times)
-    .enter().append("text")
-      .text(function(d) { return d; })
-      .attr("x", function(d, i) { return i * (width / 12) + 5; })
-      .attr("y", -5)
-      .style("text-anchor", "middle")
+    .data(times_list)
+    .enter()
+    .append("text")
+    .text(function (d) { return d; })
+    .attr("x", function (d, i) { return i * (width / 12) + 5; })
+    .attr("y", -5)
+    .style("text-anchor", "middle");
       // .attr("transform", "translate(" + gridSize / 2 + ", -6)")
       // .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
-var mouseover = function() {
-
-
-  // d3.select(this)
-  //   .transition()        
-  //   .duration(200)      
-  //   .style("stroke-width", "4px")     
+var mouseover = function () {
   var text = d3.select(this).text();
 
   d3.select("#tooltip")
     .html(text)
-    .transition()        
-    .duration(100)      
+    .transition()
+    .duration(100)
+    .style("stroke-width", "4px")
     .style("left", d3.event.pageX + 10 + "px")
     .style("top", d3.event.pageY + 10 + "px")
     .style("opacity", 1);
-              
-  // d3.select(this).style("stroke-width", "4px");
-  // d3.select(this).style("fill", "#000");
-
-  // var text = d3.select(this).text();
-  // d3.select("#infoBox").html(text + ' Complaints');
 };
 
-var mouseout = function() {
-  
-  // d3.select(this).style("fills", "#fff");
-      // Hide the tooltip
+var mouseout = function () {
   d3.select("#tooltip")
-    .transition()        
-    .duration(100)    
-    .style("opacity", 0);;
+    .transition()
+    .duration(100)
+    .style("stroke-width", "1px")
+    .style("opacity", 0);
 };
 
 var rect = svg.selectAll(".day")
-    .data(function(d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+    .data(function (d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
     .enter().append("rect")
     .attr("class", "day")
     .attr("width", cellSize)
     .attr("height", cellSize)
-    .attr("x", function(d) { return week(d) * cellSize; })
-    .attr("y", function(d) { return day(d) * cellSize; })
+    .attr("x", function (d) { return week(d) * cellSize; })
+    .attr("y", function (d) { return day(d) * cellSize; })
     .on("mouseover", mouseover)
     .on("mouseout", mouseout)
-    .datum(format)
-
+    .datum(format);
 
 svg.selectAll(".month")
-    .data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+    .data(function (d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
     .enter().append("path")
     .attr("class", "month")
     .attr("d", monthPath);
 
-
-d3.csv("static/data/all_noise_counts.csv", function(csv){ 
-  var key_val = {}
+d3.csv("static/data/all_noise_counts.csv", function (csv) {
+  var key_val = {};
 
   for (var i = csv.length - 1; i >= 0; i--) {
     key_val[csv[i]['Created Date']] = csv[i]['Complaint Type'];
