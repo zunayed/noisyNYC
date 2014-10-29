@@ -41,8 +41,6 @@
 #infoBox {
   position: fixed;
   font-family: "Helvetica Neue", Helvetica;
-  bottom: 2em;
-  right: 2em;
   text-decoration: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
@@ -50,6 +48,7 @@
   padding: 1em;
   display: none;
 }
+
 #corner_item {
 	position: fixed;
 	top: 2em;
@@ -59,6 +58,7 @@
 	left: 15PX;
 	width: 350px;*/
 }
+
 
 rect.bordered {
     stroke: #E6E6E6;
@@ -79,3 +79,38 @@ text.axis-worktime {
     fill: #000;
 }
 
+#corner_item2 {
+    position: fixed;
+    bottom: 2em;
+    left: 2em;
+    text-align: left;
+/*  position: absolute;
+    top: 55px;
+    left: 15PX;
+    width: 350px;*/
+}
+
+#infoBox {
+  position: fixed;
+  font-family: "Helvetica Neue", Helvetica;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  padding: 1em;
+  display: none;
+}
+
+#tooltip {
+    position: absolute;
+    font-family: "Helvetica Neue", Helvetica;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1em;
+    font-size: 14px;
+}
+
+#tooltip.hidden {
+    opacity: 0;
+}
