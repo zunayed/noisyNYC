@@ -28,12 +28,12 @@ svg.append("text")
     .style("text-anchor", "middle")
     .text(function (d) { return d; });
 
-var days_list = ['S', 'W', 'S'];
+var days_list = ['M', 'W', 'F'];
 var dayLabel = svg.selectAll(".dayLebl")
     .data(days_list)
     .enter().append("text")
       .text(function (d) { return d; })
-      .attr("y", function (d, i) { return i * cellSize * 3 + 12; })
+      .attr("y", function (d, i) { return (i * cellSize * 2) + 30; })
       .attr("x", 920)
       .style("text-anchor", "middle");
 
@@ -95,12 +95,24 @@ d3.csv("static/data/all_noise_counts.csv", function (csv) {
     key_val[csv[i]['Created Date']] = csv[i]['Complaint Type'];
   };
 
-  console.log(key_val)
-
   rect.filter(function(d) { return d in key_val; })
     .attr("class", function(d) { return "day " + color(key_val[d]); })
     .text(function(d) { return d + ": " + key_val[d]; })
 });
+
+function heatData() {
+  d3.csv("static/data/all_heat_counts.csv", function (csv) {
+  var key_val = {};
+
+  for (var i = csv.length - 1; i >= 0; i--) {
+    key_val[csv[i]['Created Date']] = csv[i]['Complaint Type'];
+  };
+
+  rect.filter(function(d) { return d in key_val; })
+    .attr("class", function(d) { return "day " + color(key_val[d]); })
+    .text(function(d) { return d + ": " + key_val[d]; })
+  });
+};
 
 
 function monthPath(t0) {
@@ -113,3 +125,9 @@ function monthPath(t0) {
       + "H" + (w1 + 1) * cellSize + "V" + 0
       + "H" + (w0 + 1) * cellSize + "Z";
 }
+
+//monitor dropdown menu to change map data
+d3.select("#dataSelector").on("change", function() {
+  //
+
+});
