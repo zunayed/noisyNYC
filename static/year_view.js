@@ -10,44 +10,44 @@ var percent = d3.format(".1%");
 var format = d3.time.format("%Y-%m-%d");
 
 var color = d3.scale.quantize()
-    .domain([0, 915])
-    .range(d3.range(9).map(function (d) { return "q" + d + "-9"; }));
+  .domain([0, 915])
+  .range(d3.range(9).map(function (d) { return "q" + d + "-9"; }));
 
 var svg = d3.select("#charts").selectAll("svg")
-    .data(d3.range(2012, 2015))
-    .enter()
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("class", "BuGn")
-    .append("g")
-    .attr("transform", "translate(" + ((width - cellSize * 53) / 2) + "," + (height - cellSize * 7 - 1) + ")");
+  .data(d3.range(2012, 2015))
+  .enter()
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height)
+  .attr("class", "BuGn")
+  .append("g")
+  .attr("transform", "translate(" + ((width - cellSize * 53) / 2) + "," + (height - cellSize * 7 - 1) + ")");
 
 svg.append("text")
-    .attr("transform", "translate(-6," + cellSize * 3.5 + ")rotate(-90)")
-    .style("text-anchor", "middle")
-    .text(function (d) { return d; });
+  .attr("transform", "translate(-6," + cellSize * 3.5 + ")rotate(-90)")
+  .style("text-anchor", "middle")
+  .text(function (d) { return d; });
 
 var days_list = ['M', 'W', 'F'];
 var dayLabel = svg.selectAll(".dayLebl")
-    .data(days_list)
-    .enter().append("text")
-      .text(function (d) { return d; })
-      .attr("y", function (d, i) { return (i * cellSize * 2) + 30; })
-      .attr("x", 920)
-      .style("text-anchor", "middle");
+  .data(days_list)
+  .enter().append("text")
+  .text(function (d) { return d; })
+  .attr("y", function (d, i) { return i * cellSize * 3 + 12; })
+  .attr("x", 920)
+  .style("text-anchor", "middle");
 
 var times_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 var timeLabels = svg.selectAll(".timeLabel")
-    .data(times_list)
-    .enter()
-    .append("text")
-    .text(function (d) { return d; })
-    .attr("x", function (d, i) { return i * (width / 12) + 5; })
-    .attr("y", -5)
-    .style("text-anchor", "middle");
-      // .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-      // .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+  .data(times_list)
+  .enter()
+  .append("text")
+  .text(function (d) { return d; })
+  .attr("x", function (d, i) { return i * (width / 12) + 5; })
+  .attr("y", -5)
+  .style("text-anchor", "middle");
+    // .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+    // .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
 var mouseover = function () {
   var text = d3.select(this).text();
@@ -71,22 +71,22 @@ var mouseout = function () {
 };
 
 var rect = svg.selectAll(".day")
-    .data(function (d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
-    .enter().append("rect")
-    .attr("class", "day")
-    .attr("width", cellSize)
-    .attr("height", cellSize)
-    .attr("x", function (d) { return week(d) * cellSize; })
-    .attr("y", function (d) { return day(d) * cellSize; })
-    .on("mouseover", mouseover)
-    .on("mouseout", mouseout)
-    .datum(format);
+  .data(function (d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+  .enter().append("rect")
+  .attr("class", "day")
+  .attr("width", cellSize)
+  .attr("height", cellSize)
+  .attr("x", function (d) { return week(d) * cellSize; })
+  .attr("y", function (d) { return day(d) * cellSize; })
+  .on("mouseover", mouseover)
+  .on("mouseout", mouseout)
+  .datum(format);
 
 svg.selectAll(".month")
-    .data(function (d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
-    .enter().append("path")
-    .attr("class", "month")
-    .attr("d", monthPath);
+  .data(function (d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+  .enter().append("path")
+  .attr("class", "month")
+  .attr("d", monthPath);
 
 d3.csv("static/data/all_noise_counts.csv", function (csv) {
   var key_val = {};
