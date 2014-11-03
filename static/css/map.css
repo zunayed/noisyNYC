@@ -120,3 +120,7 @@ text.axis-worktime {
 #tooltip.hidden {
     opacity: 0;
 }
+
+#dataselector {
+    padding: 10em;
+}

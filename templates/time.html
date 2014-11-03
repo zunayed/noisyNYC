@@ -83,20 +83,30 @@ body {
 
 <body>
 <div class="row">
-  <div class="large-12 columns">
-    <div>
+    <div class="large-8 columns">
+        <div>
         <h1> NYC 311 Data</h1>
         <p class="mapSubtext2">
-            Noisy complaints throughtout the years
-            <br/>
-            <a href="http://nbviewer.ipython.org/github/zunayed/noisyNYC/blob/master/data_analysis/311_data.ipynb">Ipython Notebook</a> 
-            <br/>
-            <a href="https://github.com/zunayed/noisyNYC">Github</a> 
-            <br/>
-            Zunayed Morsalin
+        Noisy complaints throughtout the years
+        <br/>
+        <a href="http://nbviewer.ipython.org/github/zunayed/noisyNYC/blob/master/data_analysis/311_data.ipynb">Ipython Notebook</a> 
+        <br/>
+        <a href="https://github.com/zunayed/noisyNYC">Github</a> 
+        <br/>
+        Zunayed Morsalin
         </p>
+        </div>
     </div>
-  </div>
+    <div class="large-4 columns">
+        <div class="menu">
+            <select id="dataSelector">
+                <option value="" disabled="disabled">Change Data</option>
+                <option value="noise" selected="selected">Noise</option>
+                <option value="heat">Heating</option>
+                <option value="graffiti">Graffiti</option>
+            </select>
+        </div>
+    </div>
 </div>
 <div class="row">
   <div class="large-12 columns">
