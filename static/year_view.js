@@ -1,4 +1,11 @@
 /*global d3: false  */
+
+// TODO
+// Legend
+// Transition
+// jquery cookie
+// static reorg
+
 var dataSets = {
   "noise": {
     "data": 'static/data/all_noise_counts.csv',
@@ -42,7 +49,7 @@ var dayLabel = svg.selectAll(".dayLebl")
   .data(days_list)
   .enter().append("text")
   .text(function (d) { return d; })
-  .attr("y", function (d, i) { return i * cellSize * 3 + 12; })
+  .attr("y", function (d, i) { return i * cellSize * 2 + 30; })
   .attr("x", 920)
   .style("text-anchor", "middle");
 
