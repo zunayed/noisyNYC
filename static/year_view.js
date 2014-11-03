@@ -1,4 +1,14 @@
 /*global d3: false  */
+var dataSets = {
+  "noise": {
+    "data": 'static/data/all_noise_counts.csv',
+    "maxDomain": 915
+  },
+  "heat": {
+    "data": 'static/data/all_heat_counts.csv',
+    "maxDomain": 3000
+  },
+};
 
 var width = 960;
 var height = 150;
@@ -8,7 +18,6 @@ var day = d3.time.format("%w");
 var week = d3.time.format("%U");
 var percent = d3.format(".1%");
 var format = d3.time.format("%Y-%m-%d");
-
 var color = d3.scale.quantize()
   .domain([0, 915])
   .range(d3.range(9).map(function (d) { return "q" + d + "-9"; }));
@@ -100,8 +109,8 @@ d3.csv("static/data/all_noise_counts.csv", function (csv) {
     .text(function(d) { return d + ": " + key_val[d]; })
 });
 
-function heatData() {
-  d3.csv("static/data/all_heat_counts.csv", function (csv) {
+function plotData(csv_file) {
+  d3.csv(csv_file, function (csv) {
   var key_val = {};
 
   for (var i = csv.length - 1; i >= 0; i--) {
@@ -114,7 +123,6 @@ function heatData() {
   });
 };
 
-
 function monthPath(t0) {
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
       d0 = +day(t0), w0 = +week(t0),
@@ -126,8 +134,9 @@ function monthPath(t0) {
       + "H" + (w0 + 1) * cellSize + "Z";
 }
 
-//monitor dropdown menu to change map data
+//monitor dropdown menu to change data
 d3.select("#dataSelector").on("change", function() {
-  //
-
+  currentData = dataSets[this.value];
+  color.domain([0, dataSets[this.value]['maxDomain']])
+  plotData(dataSets[this.value]['data']);
 });
