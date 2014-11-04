@@ -4,7 +4,7 @@
 // Legend
 // Transition
 // jquery cookie
-// static reorg
+// static reorg 
 
 var dataSets = {
   "noise": {
