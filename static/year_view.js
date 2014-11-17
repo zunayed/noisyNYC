@@ -104,31 +104,69 @@ svg.selectAll(".month")
   .attr("class", "month")
   .attr("d", monthPath);
 
-d3.csv("static/data/all_noise_counts.csv", function (csv) {
-  var key_val = {};
-
-  for (var i = csv.length - 1; i >= 0; i--) {
-    key_val[csv[i]['Created Date']] = csv[i]['Complaint Type'];
-  };
-
-  rect.filter(function(d) { return d in key_val; })
-    .attr("class", function(d) { return "day " + color(key_val[d]); })
-    .text(function(d) { return d + ": " + key_val[d]; })
-});
-
 function plotData(csv_file) {
   d3.csv(csv_file, function (csv) {
   var key_val = {};
 
   for (var i = csv.length - 1; i >= 0; i--) {
     key_val[csv[i]['Created Date']] = csv[i]['Complaint Type'];
-  };
+  }
 
   rect.filter(function(d) { return d in key_val; })
     .attr("class", function(d) { return "day " + color(key_val[d]); })
-    .text(function(d) { return d + ": " + key_val[d]; })
+    .text(function(d) { return d + ": " + key_val[d]; });
   });
-};
+}
+
+function plotLegend(max_domain) {
+  //legend settings
+  var dataLegendMax = max_domain;
+  var legendWidth = 15;
+  var legendHeight = 15;
+  var legendSteps = 9;
+
+  var step = dataLegendMax / legendSteps;
+  var legendRange = [];
+
+  for (var k = 0 ; k < legendSteps ; k++) {
+    legendRange.push (Math.floor(k * step));
+  }
+  var legend_svg = d3.select("#legend")
+    .append("svg")
+    .attr("class", "BuGn")
+    .attr("width", 960)
+    .attr("height", 80 );
+
+  var legend = legend_svg.selectAll("g.legend")
+    .data(legendRange)
+    .enter().append("g")
+    .attr("class", "legend");
+
+  legend.append("rect")
+    .attr("x", function(d, i){ return (i * legendHeight) + 30; })
+    .attr("y", 20)
+    .attr("width", legendWidth)
+    .attr("height", legendHeight)
+    .attr("class", function(d) { return "day " + color(d); });
+
+  legend_svg.append("text")
+    .attr("x", 30)
+    .attr("y", 18)
+    .attr("class", "mapSubtext")
+    .text('Legend');
+
+  legend_svg.append("text")
+    .attr("x", 30)
+    .attr("y", legendHeight * 3 + 5)
+    .attr("class", "mapSubtext")
+    .text('0');
+
+  legend_svg.append("text")
+    .attr("x", legendSteps * legendHeight + 30)
+    .attr("y", legendHeight * 3 + 5)
+    .attr("class", "mapSubtext")
+    .text(dataLegendMax);
+}
 
 function monthPath(t0) {
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
@@ -147,3 +185,7 @@ d3.select("#dataSelector").on("change", function() {
   color.domain([0, dataSets[this.value]['maxDomain']])
   plotData(dataSets[this.value]['data']);
 });
+
+// plot the default dataset
+plotData(dataSets['noise']['data']);
+plotLegend(915);
