@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- css -->
+    <link rel="stylesheet" href="/static/css/foundation.css">
+    <link rel="stylesheet" href="/static/css/colorbrewer.css">
+    <link rel="stylesheet" href="/static/css/map.css">
+
+    <!-- javascript -->
+    <script src="/static/foundation/modernizr.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  </head>
+
+  <body>
+    <div class="row">
+        <div class="top_menu">
+            <div class="large-6 columns">
+                <h1> NYC 311 Data</h1>
+                <br/>
+                <div id='firstStop'>
+                    <select class="styled-select" id="dataSelector">
+                        <option value="" disabled="disabled">Change Data</option>
+                        <option value="noise" selected="selected">Noise</option>
+                        <option value="heat">Heating</option>
+                    </select>
+                </div>
+            </div>
+            <div class"large-6 columns">
+                <p class="mapSubtext">
+                    <br/>
+                    Noisy/Heat complaints throughtout the years
+                    <br/>
+                    <a href="http://nbviewer.ipython.org/github/zunayed/noisyNYC/blob/master/data_analysis/311_data.ipynb">Ipython Notebook</a> 
+                    <br/>
+                    <a href="https://github.com/zunayed/noisyNYC">Github</a> 
+                    <br/>
+                    Zunayed Morsalin
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <div id="charts"></div>
+      </div>
+    </div>
+
+    <ol class="joyride-list" data-joyride>
+      <li data-id="firstStop" data-text="Close" data-options="tip_location: top; prev_button: false">
+        <p>Use this dropdown to select a different data source</p>
+      </li>
+    </ol>
+    <div id="tooltip" class="hidden"></div>
+  </body>
+
+  <footer>
+    <!-- JavaScript -->
+    <script src="/static/d3.v3.js"></script>
+    <script src="/static/year_view.js"></script>
+    <script src="static/foundation/foundation.min.js"></script>
+    <script src="static/foundation/foundation/foundation.reveal.js"></script>
+    <script src="static/foundation/foundation/foundation.joyride.js"></script>
+
+    <script> 
+      $(document).foundation('joyride', 'start'); 
+    </script>
+  </footer>
+</html>
+
