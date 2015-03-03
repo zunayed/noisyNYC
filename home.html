@@ -1,5 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!doctype htmass="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,25 +14,25 @@
   </head>
 
   <body>
-
-    <div id="d3_map"></div> 	
+    
+    <div id="d3_map"></div>         
 
     <div id="corner_item">
-            <div class="mapText"> NYC 311 Data</div>
-            <p class="mapSubtext">Zip codes with the most _____ complaints</p>
+        <div class="mapText"> NYC 311 Data</div>
+        <p class="mapSubtext">Zip codes with the most _____ complaints</p>
 
         <div class="menu">
-                    <select id="dataSelector">
-                            <option value="" disabled="disabled">Change Data</option>
+            <select id="dataSelector">
+                <option value="" disabled="disabled">Change Data</option>
                 <option value="noise" selected="selected">Noise</option>
                 <option value="heat">Heating</option>
                 <option value="graffiti">Graffiti</option>
             </select>
         </div>
 
-            <div class="menu">
-                    <select id="colorSelector">
-                            <option value="" disabled="disabled" selected="selected">Change color</option>
+        <div class="menu">
+            <select id="colorSelector">
+                <option value="" disabled="disabled" selected="selected">Change color</option>
                 <option value="YlGn">YlGn</option>
                 <option value="YlGnBu">YlGnBu</option>
                 <option value="GnBu">GnBu</option>
@@ -56,7 +55,7 @@
             <br>
         </div>
 
-            <p class="mapSubtext">
+        <p class="mapSubtext">
             <!-- <a href="#test" data-reveal-id="myModal" class="radius button tiny">Time of Day Viz</a> -->
             <br />
             <a href="https://github.com/zunayed/noisyNYC">Github</a> 
@@ -71,31 +70,29 @@
                 <div id="chart"></div>     
             </div>
 
-            </p>
+        </p>
     </div>
     <a id="infoBox" style="display: inline;">
         On Zip: 
     </a>
 
-    <!-- JavaScript -->
 
+  </body>
+
+  <footer>
+    <!-- JavaScript --> 
     <script src="/static/d3.v3.js"></script>
     <script src="/static/noiseNYC.js"></script>
     <script src="/static/heatNYC.js"></script>
     <script src="/static/graffitiNYC.js"></script>
     <script src="/static/maps.js"></script>
     <script src="/static/time.js"></script>
-    <!-- <script src=/static/gcharts.js') }}"></script> -->
-    </body>
-
-  <footer>
-    <script src="/static/foundation/foundation.min.js"></script>
-    <script src="/static/foundation/foundation/foundation.reveal.js"></script>
-    <script src="/static/foundation/foundation/foundation.joyride.js"></script>
+    <script src="static/foundation/foundation.min.js"></script>
+    <script src="static/foundation/foundation/foundation.reveal.js"></script>
+    <script src="static/foundation/foundation/foundation.joyride.js"></script>
 
     <script> 
       $(document).foundation('joyride', 'start'); 
     </script>
   </footer>
 </html>
-
