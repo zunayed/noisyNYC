@@ -1,0 +1,16 @@
+.intro {text-align: center}
+.map_container {text-align: right}
+
+.white { 
+    fill: #F0F0F0;
+    stroke: #fff;
+    stroke-width: 1.75px;
+}
+
+.infotext {
+    display: block;
+    font-family: "Helvetica Neue", Helvetica;
+    font-size: 36px;
+    font-weight: 300;
+    text-shadow: 0 1px 0 #fff;
+}
